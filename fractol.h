@@ -35,11 +35,12 @@ typedef struct	s_data
 
 typedef struct s_vec
 {
-	double x;
-	double y;
+	int	x;
+	int	y;
 }		t_vec;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_line(t_data *data, t_vec z0, t_vec z1, int color);
 
 #endif
 
