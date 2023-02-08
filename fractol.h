@@ -20,8 +20,8 @@
 # include <math.h>
 
 //constants used in the program
-# define WIDTH 900
-# define HEIGHT 600
+# define WIDTH 1200
+# define HEIGHT 800
 
 
 typedef struct	s_data 
@@ -31,6 +31,7 @@ typedef struct	s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	
 }			t_data;
 
 typedef struct s_vec
@@ -39,8 +40,18 @@ typedef struct s_vec
 	int	y;
 }		t_vec;
 
+typedef struct s_vect
+{
+	double x;
+	double y;
+} t_vect;
+
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	my_line(t_data *data, t_vec z0, t_vec z1, int color);
+void	triangle(t_data *data, t_vec z0, t_vec z1, t_vec z2, int color);
+void	deyanx(t_vect c, t_data *data, int color);
+void	jeyanx(t_vect c, t_data *data, int color);
+void	ehabx(t_data *data, int color);
 
 #endif
 
