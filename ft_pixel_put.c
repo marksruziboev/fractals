@@ -19,10 +19,10 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	main(void)
+int	main(void)//(int argc, char **v)
 {
-	void	*mlx;
-	void	*mlx_win;
+	//void	*mlx;
+	//void	*mlx_win;
 	t_data	img;
 	t_vec z0,z1,z2;
 	t_vect c;
@@ -30,6 +30,11 @@ int	main(void)
 	c.x = 0.285;
 	c.y = 0.01;
 	
+	/*if (argc == 1)
+	{
+		printf("fuck you");
+		return (0);
+	}*/
 	//0.285 + 0.01i
 	
 	z0.x = 0;
@@ -41,18 +46,29 @@ int	main(void)
 	z2.x = 50;
 	z2.y = 800;*/
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "Hello world!");
-	img.img = mlx_new_image(mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
+	img.mlx = mlx_init();
+	img.mlx_win = mlx_new_window(img.mlx, WIDTH, HEIGHT, "Hello world!");
+	img.img = mlx_new_image(img.mlx, WIDTH, HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	
+	//if (v[1] == "S")
 	ehabx(&img,  0x00FF0000);
-	//jeyanx(c, &img, 0x00FF0000);
-	//deyanx(c, &img, 0x00FF0000);
-	//triangle(&img,  z0,  z1,  z2, 0x00FF0000);
-	//my_line(&img, z0, z1, 0x00FF0000);
-	//my_mlx_pixel_put(&img,  500, 500, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	//else if(v[1] == "J")
+	//	jeyanx(c, &img, 0x00FF0000);
+	//else if (v[1] == "M")
+	//	deyanx(c, &img, 0x00FF0000);
+	mlx_put_image_to_window(img.mlx, img.mlx_win, img.img, 0, 0);
+	
+	// Setup hooks  
+	//mlx_loop_hook(img.mlx, &handle_no_event, &img);
+	//mlx_key_hook(img.mlx_win, &key_input, &img);
+	//mlx_hook(img.mlx_win, 17, 0, &click_destroy, &img);
+	mlx_loop(img.mlx);
+	// we will exit the loop if there's no window left, and execute this code 
+	//mlx_destroy_window(img.mlx, img.mlx_win);
+	//mlx_destroy_display(img.mlx);
+	
+	
+	return(0);	
 }
 

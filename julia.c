@@ -15,6 +15,7 @@ int nic(t_vect z, t_vect c)
 {
 	t_vect next;
 	
+	
 	next = map(z,c);
 	int i = -1;
 	while(++i < 50)
@@ -32,8 +33,9 @@ int nic(t_vect z, t_vect c)
 void deyanx(t_vect c, t_data *data, int color)
 {
 	t_vect z;
-	//t_vect c;
 	t_vect next;
+	int p;
+	int q;
 	
 	z.x = 0;
 	z.y = 0;
@@ -45,8 +47,10 @@ void deyanx(t_vect c, t_data *data, int color)
 		c.x = -2;
 		while(c.x <= 1)
 			{
+				p = floor(400*(c.x + 2));
+				q = HEIGHT- floor(400*(c.y + 1));
 				if (nic(z, c) > 0)
-					my_mlx_pixel_put(data, floor(400*(c.x + 2)), HEIGHT- floor(400*(c.y + 1)), color);
+					my_mlx_pixel_put(data, p, q, color);
 				c.x += h;
 			}
 		c.y += h;
@@ -57,7 +61,6 @@ void deyanx(t_vect c, t_data *data, int color)
 void jeyanx(t_vect c, t_data *data, int color)
 {
 	t_vect z;
-	//t_vect c;
 	t_vect next;
 	
 	z.x = -2;

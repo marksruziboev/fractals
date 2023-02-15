@@ -21,9 +21,18 @@
 # include <stdio.h>
 # include <math.h>
 
-//constants used in the program
+
+//size of the window
 # define WIDTH 1200
 # define HEIGHT 800
+# define OMEGA 60
+
+// fractals
+# define MANDELBROT 1
+# define JULIA 2
+# define BURNING_SHIP 3
+# define TRICORN 4
+# define MANDELBOX 5
 
 #define MLX_ERROR 1
 
