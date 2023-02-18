@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx_linux/mlx.h"
+# include "../mlx_linux/mlx.h"
 //# include "libft.h"
 # include <X11/keysym.h>
 #include <stdlib.h>
@@ -49,27 +49,27 @@ typedef struct	s_data
 		
 }			t_data;
 
-typedef struct s_vec
+typedef struct s_ivec
 {
 	int	x;
 	int	y;
-}		t_vec;
+}		t_ivec;
 
-typedef struct s_vect
+typedef struct s_vec
 {
 	double x;
 	double y;
-} t_vect;
+} t_vec;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	my_line(t_data *data, t_vec z0, t_vec z1, int color);
-void	triangle(t_data *data, t_vec z0, t_vec z1, t_vec z2, int color);
-void	deyanx(t_vect c, t_data *data, int color);
+int	julia_shift(int x, int y, t_fractol *f);
+int	julia(t_fractol *f, t_vect z);
 void	jeyanx(t_vect c, t_data *data, int color);
 void	ehabx(t_data *data, int color);
 int	handle_no_event(void *data);
 int	key_input(int keysym, t_data *data);
 int	click_destroy(t_data *data);
+double rnd(double x);
 
 #endif
 

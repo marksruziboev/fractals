@@ -12,14 +12,14 @@
 
 #include "fractol.h"
 
-/* julia_shift:
+/* julia_move:
 *	Changes the Julia calculation kr and ki values to get a different Julia
 *	fractal shape. This function should be called when the user clicks on
 *	a point on the sceen.
 */
-int	julia_shift(int x, int y, t_fractol *f)
+int	julia_move(int x, int y, t_vect *b)
 {
-	f->kr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
+	f->r = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 	f->ki = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
 	render(f);
 	return (0);
@@ -32,7 +32,7 @@ int	julia_shift(int x, int y, t_fractol *f)
 *	Returns the number of iterations before the number escapes 
 *	the Julia set, which can then be used to determine coloring.
 */
-int	julia(t_fractol *f, t_vect z)
+int	julia(t_vec, t_vec c)
 {
 	int		n;
 	double	tmp;

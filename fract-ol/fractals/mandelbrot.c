@@ -21,7 +21,7 @@
 int	mandelbrot(t_vect c) // arguments were double cr, double ci
 {
 	int		n;
-	t_vect	z;
+	t_vec	z;
 	double	tmp;
 
 	z.x = 0;

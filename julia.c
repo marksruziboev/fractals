@@ -1,83 +1,78 @@
+#include<graphics.h>
+#include<stdlib.h>
+#include<math.h>
 
-#include "fractol.h"
+typedef struct{
+	double x,y;
+}complex;
 
-
-t_vect map(t_vect z, t_vect c)
-{
-	t_vect ret;
-
-	ret.x = z.x*z.x - z.y*z.y + c.x;
-	ret.y = 2*z.x*z.y + c.y;
-	return ret;
+complex add(complex a,complex b){
+	complex c;
+	c.x = a.x + b.x;
+	c.y = a.y + b.y;
+	return c;
 }
 
-int nic(t_vect z, t_vect c)
-{
-	t_vect next;
+complex sqr(complex a){
+	complex c;
+	c.x = a.x*a.x - a.y*a.y;
+	c.y = 2*a.x*a.y;
+	return c;
+}
+
+double mod(complex a){
+	return sqrt(a.x*a.x + a.y*a.y);
+}
+
+complex mapPoint(int width,int height,double radius,int x,int y){
+	complex c;
+	int l = (width<height)?width:height;
 	
+	c.x = 2*radius*(x - width/2.0)/l;
+	c.y = 2*radius*(y - height/2.0)/l;
 	
-	next = map(z,c);
-	int i = -1;
-	while(++i < 50)
-	{
-		next = map(next, c);
-		if(next.x > 2 || next.x < -2 || next.y > 2 || next.y < -2)
-		{
-			return (0);
-			break ;
+	return c;
+}
+
+void juliaSet(int width,int height,complex c,double radius,int n){
+	int x,y,i;
+	complex z0,z1;
+	
+	for(x=0;x<=width;x++)
+		for(y=0;y<=height;y++){
+			z0 = mapPoint(width,height,radius,x,y);
+			for(i=1;i<=n;i++){
+				z1 = add(sqr(z0),c);
+				if(mod(z1)>radius){
+					putpixel(x,y,i%15+1);
+					break;
+				}
+				z0 = z1;
+			}
+			if(i>n)
+				putpixel(x,y,0);
 		}
-	}
-	return (1);
 }
 
-void deyanx(t_vect c, t_data *data, int color)
+int main(int argC, char* argV[])
 {
-	t_vect z;
-	t_vect next;
-	int p;
-	int q;
+	int width, height;
+	complex c;
 	
-	z.x = 0;
-	z.y = 0;
-	
-	double h = 0.001;
-	
-	while( c.y <= 1)
-	{
-		c.x = -2;
-		while(c.x <= 1)
-			{
-				p = floor(400*(c.x + 2));
-				q = HEIGHT- floor(400*(c.y + 1));
-				if (nic(z, c) > 0)
-					my_mlx_pixel_put(data, p, q, color);
-				c.x += h;
-			}
-		c.y += h;
+	if(argC != 7)
+		printf("Usage : %s <width and height of screen, real and imaginary parts of c, limit radius and iterations>");
+	else{
+		width = atoi(argV[1]);
+		height = atoi(argV[2]);
+		
+		c.x = atof(argV[3]);
+		c.y = atof(argV[4]);
+		
+		initwindow(width,height,"Julia Set");
+		juliaSet(width,height,c,atof(argV[5]),atoi(argV[6]));
+		
+		getch();
 	}
+	
+	return 0;
 }
-
-
-void jeyanx(t_vect c, t_data *data, int color)
-{
-	t_vect z;
-	t_vect next;
-	
-	z.x = -2;
-	z.y = -2;
-	
-	double h = 0.001;
-	
-	while( z.y <= 2)
-	{
-		z.x = -2;
-		while(z.x <= 2)
-			{
-				if (nic(z, c) > 0)
-					my_mlx_pixel_put(data, floor(200*z.x + 600), HEIGHT-floor(200*z.y+400), color);
-				z.x += h;
-			}
-		z.y += h;
-	}
-}
-
