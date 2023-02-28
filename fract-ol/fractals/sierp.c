@@ -40,7 +40,7 @@ int	sierp(t_vec z)
 	while (i < OMEGA)
 	{
 		if (next.x > w && next.x < e && next.y > w && next.y < e)
-			break ;
+			return (i);
 		next = ser(next);
 		i++;
 	}
