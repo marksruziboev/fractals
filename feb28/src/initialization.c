@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:52 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:45:17 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	clean_init(t_fr *f)
 	f->mlx = NULL;
 	f->win = NULL;
 	f->img = NULL;
-	f->buf = NULL;
+	f->data = NULL;
 	f->fractl = -1;
 	f->min_r = 0;
 	f->max_r = 0;
@@ -33,7 +33,7 @@ void	clean_init(t_fr *f)
 	f->sx = 0;
 	f->rx = 0;
 	f->fx = 0;
-	f->palette = NULL;
+	f->col_arr = NULL;
 	f->color_pattern = -1;
 	f->color = 0;
 }
@@ -51,7 +51,7 @@ void	clean_init(t_fr *f)
 */
 void	get_complex_layout(t_fr *f)
 {
-	if (f->fractl == MANDELBOX)
+	if (f->fractl == MANDELBROT)
 	{
 		f->min_r = -4.0;
 		f->max_r = 4.0;
@@ -65,6 +65,20 @@ void	get_complex_layout(t_fr *f)
 		f->min_i = -2.0;
 		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
+	else if (f->fractl == FERN)
+	{
+		f->min_r = -100;
+		f->max_r = 100;
+		f->min_i = 100;
+		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+	}
+	else if (f->fractl == CARPET)
+	{
+		f->min_r = 0.1;
+		f->max_r = 1.1;
+		f->min_i = 0.1;
+		f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+	}
 	else
 	{
 		f->min_r = -2.0;
@@ -72,10 +86,11 @@ void	get_complex_layout(t_fr *f)
 		f->max_i = -1.5;
 		f->min_i = f->max_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
+	
 }
 
 /* init_img:
-*	Initializes an MLX image and a color palette. The color palette will
+*	Initializes an MLX image and a color col_arr. The color col_arr will
 *	be used to store every shade of color for every iteration number,
 *	and the color of each pixel will be stored in the image, which will
 *	then be displayed in the program window.
@@ -85,30 +100,30 @@ static void	init_img(t_fr *f)
 	int		pixel_bits;
 	int		line_bytes;
 	int		endian;
-	char	*buf;
+	char	*data;
 
-	f->palette = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
-	if (!(f->palette))
+	f->col_arr = ft_calloc((MAX_ITERATIONS + 1), sizeof(int));
+	if (!(f->col_arr))
 		clean_exit(msg("error initializing color scheme.", "", 1), f);
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	if (!(f->img))
-		clean_exit(msg("image creation error.", "", 1), f);
-	buf = mlx_get_data_addr(f->img, &pixel_bits, &line_bytes, &endian);
-	f->buf = buf;
+		clean_exit(msg("Was not able to create image.", "", 1), f);
+	data = mlx_get_data_addr(f->img, &pixel_bits, &line_bytes, &endian);
+	f->data = data;
 }
 
 /* reinit_image:
-*	Cleanly reinitializes the MLX image if the color palette or 
+*	Cleanly reinitializes the MLX image if the color col_arr or 
 *	fractal type is modified at runtime.
 */
 void	reinit_img(t_fr *f)
 {
 	if (f->mlx && f->img)
 		mlx_destroy_image(f->mlx, f->img);
-	if (f->palette)
-		free(f->palette);
-	if (f->buf)
-		f->buf = NULL;
+	if (f->col_arr)
+		free(f->col_arr);
+	if (f->data)
+		f->data = NULL;
 	init_img(f);
 }
 

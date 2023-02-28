@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:40 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:33:52 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 
 /* type_cmp:
 *	Parses the given fractal type argument and checks against
-*	the name (i.e. "mandelbrot"), the associated letter (i.e. "M")
-*	and the associated number (i.e. "1").
+*	the name (i.e. "mandelbrot"), (the associated letter (i.e. "M")
+*	and **this feature is remmoved) the associated number (i.e. "1").
 *	Returns true if the argument matches one of these requirements,
 *	false if not.
 */
-static int	type_cmp(char *av, char *str, char c, char n)
+static int	type_cmp(char *s1, char *s2,  char n)
 {
 	int	i;
 
 	i = 0;
-	while (av[i])
+	while (s1[i])
 	{
-		av[i] = ft_tolower(av[i]);
+		s1[i] = ft_tolower(s1[i]);
 		i++;
 	}
-	if (!ft_strncmp(av, str, ft_strlen(str) + 1))
+	if (!ft_strncmp(s1, s2, ft_strlen(s2) + 1))
 		return (1);
-	else if (av[1] == '\0' && (av[0] == c || av[0] == n))
+	else if (s1[1] == '\0' &&  s1[0] == n)
 		return (1);
 	return (0);
 }
@@ -44,27 +44,25 @@ static int	type_cmp(char *av, char *str, char c, char n)
 */
 static void	get_fractl(t_fr *f, char **av)
 {
-	if (type_cmp(av[1], "mandelbrot", 'm', '1'))
+	if (type_cmp(av[1], "mandelbrot", '1'))
 		f->fractl = MANDELBROT;
-	else if (type_cmp(av[1], "julia", 'j', '2'))
+	else if (type_cmp(av[1], "julia", '2'))
 		f->fractl = JULIA;
-	else if (type_cmp(av[1], "burning ship", 'b', '3'))
-		f->fractl = BURNING_SHIP;
-	else if (type_cmp(av[1], "tricorn", 't', '4'))
-		f->fractl = TRICORN;
-	else if (type_cmp(av[1], "mandelbox", 'x', '5'))
-		f->fractl = MANDELBOX;
+	else if (type_cmp(av[1], "carpet", '3'))
+		f->fractl = CARPET;
+	else if (type_cmp(av[1], "fern",  '4'))
+		f->fractl = FERN;
 	else
 		help_msg(f);
 }
 
-/* get_julia_starting_values:
+/* julia_init_values:
 *	Checks whether starting values were provided at program launch
 *	for the Julia fractl. If not, default Julia values are assigned.
 *	If values were provided, parses them, returning an error message
 *	if the values are not valid.
 */
-static void	get_julia_starting_values(t_fr *f, int ac, char **av)
+static void	julia_init_values(t_fr *f, int ac, char **av)
 {
 	if (f->fractl != JULIA || ac == 2)
 	{
@@ -97,7 +95,7 @@ static void	handle_args(t_fr *f, int ac, char **av)
 		help_msg(f);
 	else if (f->fractl == JULIA && ac > 5)
 		help_msg(f);
-	get_julia_starting_values(f, ac, av);
+	julia_init_values(f, ac, av);
 	get_color(f, ac, av);
 }
 

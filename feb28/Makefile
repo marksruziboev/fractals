@@ -45,6 +45,7 @@ SRC			=	fractol.c \
 				help_msg.c \
 				fractal_sets/mandelbrot.c \
 				fractal_sets/julia.c \
+				#fractal_sets/sierp.c\
 				fractal_sets/burning_ship.c \
 				fractal_sets/tricorn.c \
 				fractal_sets/mandelbox.c \

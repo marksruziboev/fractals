@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:50:54 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:10:06 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 /* fill_color:
 *	fractls a color for particular stripes intervals.
-*	If stripes = 2, the coloring will ship a palette iteration,
-*	if stripes = 3, the coloring will ship 2 palette iterations, and so on.
+*	If stripes = 2, the coloring will ship a col_arr iteration,
+*	if stripes = 3, the coloring will ship 2 col_arr iterations, and so on.
 */
 static void	fill_color_stripe(t_fr *f, int color, int stripe)
 {
@@ -25,7 +25,7 @@ static void	fill_color_stripe(t_fr *f, int color, int stripe)
 	i = 0;
 	while (i < MAX_ITERATIONS)
 	{
-		f->palette[i] = color;
+		f->col_arr[i] = color;
 		i += stripe;
 	}
 }
@@ -67,7 +67,7 @@ void	fractl_color_zebra(t_fr *f, int color)
 	color2 = get_percent_color(color, 50);
 	fill_color_stripe(f, color, 1);
 	fill_color_stripe(f, color2, 2);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }
 
 /* fractl_color_triad:
@@ -84,7 +84,7 @@ void	fractl_color_triad(t_fr *f, int color)
 	fill_color_stripe(f, color, 1);
 	fill_color_stripe(f, triad[0], 2);
 	fill_color_stripe(f, triad[1], 3);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }
 
 /* fractl_color_tetra:
@@ -104,5 +104,5 @@ void	fractl_color_tetra(t_fr *f, int color)
 	fill_color_stripe(f, tetra[0], 2);
 	fill_color_stripe(f, tetra[1], 3);
 	fill_color_stripe(f, tetra[2], 4);
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }

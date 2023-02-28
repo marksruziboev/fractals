@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:50:46 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:09:36 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ void	fractl_color_opposites(t_fr *f, int color)
 	i = -1;
 	while (++i < MAX_ITERATIONS)
 	{
-		f->palette[i] = 0;
+		f->col_arr[i] = 0;
 		r += i % 0xFF;
 		g += i % 0xFF;
 		b += i % 0xFF;
-		f->palette[i] = 0xFF << 24 | r << 16 | g << 8 | b;
+		f->col_arr[i] = 0xFF << 24 | r << 16 | g << 8 | b;
 	}
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }
 
 void	fractl_color_contrasted(t_fr *f, int color)
@@ -64,16 +64,16 @@ void	fractl_color_contrasted(t_fr *f, int color)
 	i = -1;
 	while (++i < MAX_ITERATIONS)
 	{
-		f->palette[i] = 0;
+		f->col_arr[i] = 0;
 		if (r != 0xFF)
 			r += i % 0xFF;
 		if (g != 0xFF)
 			g += i % 0xFF;
 		if (b != 0xFF)
 			b += i % 0xFF;
-		f->palette[i] = 0xFF << 24 | r << 16 | g << 8 | b;
+		f->col_arr[i] = 0xFF << 24 | r << 16 | g << 8 | b;
 	}
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }
 
 void	fractl_color_graphic(t_fr *f, int color)
@@ -96,11 +96,11 @@ void	fractl_color_graphic(t_fr *f, int color)
 	}
 	while (++i < MAX_ITERATIONS)
 	{
-		f->palette[i] = 0;
+		f->col_arr[i] = 0;
 		rgb[0] -= i % 0xFF;
 		rgb[1] -= i % 0xFF;
 		rgb[2] -= i % 0xFF;
-		f->palette[i] = 0xFF << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
+		f->col_arr[i] = 0xFF << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
 	}
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }

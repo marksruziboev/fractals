@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:34 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:59:46 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 static void	zoom(t_fr *f, double zoom)
 {
-	double	cntr_r, d_r;
-	double	cntr_i, d_i;
+	double	cent_r, d_r;
+	double	cent_i, d_i;
 
-	cntr_r = (f->max_r + f->min_r)/2;
-	cntr_i = (f->min_i + f->max_i)/2;
+	cent_r = (f->max_r + f->min_r)/2;
+	cent_i = (f->min_i + f->max_i)/2;
 	d_r = (f->max_r - f->min_r)/2;
 	d_i = (f->max_r - f->min_r)/2;
-	f->max_r = cntr_r + zoom * d_r;
-	f->min_r = cntr_r - zoom * d_r;
-	f->min_i = cntr_i - zoom * d_i;
-	f->max_i = cntr_i + zoom * d_i;
+	f->max_r = cent_r + zoom * d_r;
+	f->min_r = cent_r - zoom * d_r;
+	f->min_i = cent_i - zoom * d_i;
+	f->max_i = cent_i + zoom * d_i;
 }
 /* move:
 *	Moves the view of the fractal by adjusting the complex
@@ -34,30 +34,30 @@ static void	zoom(t_fr *f, double zoom)
 */
 static void	move(t_fr *f, double distance, char direction)
 {
-	double	center_r;
-	double	center_i;
+	double	cent_r;
+	double	cent_i;
 
-	center_r = f->max_r - f->min_r;
-	center_i = f->max_i - f->min_i;
+	cent_r = f->max_r - f->min_r;
+	cent_i = f->max_i - f->min_i;
 	if (direction == 'R')
 	{
-		f->min_r += center_r * distance;
-		f->max_r += center_r * distance;
+		f->min_r += cent_r * distance;
+		f->max_r += cent_r * distance;
 	}
 	else if (direction == 'L')
 	{
-		f->min_r -= center_r * distance;
-		f->max_r -= center_r * distance;
+		f->min_r -= cent_r * distance;
+		f->max_r -= cent_r * distance;
 	}
 	else if (direction == 'D')
 	{
-		f->min_i -= center_i * distance;
-		f->max_i -= center_i * distance;
+		f->min_i -= cent_i * distance;
+		f->max_i -= cent_i * distance;
 	}
 	else if (direction == 'U')
 	{
-		f->min_i += center_i * distance;
-		f->max_i += center_i * distance;
+		f->min_i += cent_i * distance;
+		f->max_i += cent_i * distance;
 	}
 }
 
@@ -76,12 +76,12 @@ static int	key_event_extend(int keycode, t_fr *mlx)
 		mlx->fractl = MANDELBROT;
 	else if (keycode == KEY_TWO && mlx->fractl != JULIA)
 		mlx->fractl = JULIA;
-	else if (keycode == KEY_THREE && mlx->fractl != BURNING_SHIP)
+	else if (keycode == KEY_THREE && mlx->fractl != CARPET)
+		mlx->fractl = CARPET;
+	else if (keycode == KEY_FOUR && mlx->fractl != FERN)
+		mlx->fractl = FERN;
+	else if (keycode == KEY_FIVE && mlx->fractl != BURNING_SHIP)
 		mlx->fractl = BURNING_SHIP;
-	else if (keycode == KEY_FOUR && mlx->fractl != TRICORN)
-		mlx->fractl = TRICORN;
-	else if (keycode == KEY_FIVE && mlx->fractl != MANDELBOX)
-		mlx->fractl = MANDELBOX;
 	else
 		return (1);
 	get_complex_layout(mlx);

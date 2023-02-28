@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:57 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:19:37 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fractol.h"
 
 
-static int	ship_space_sign_0x(char *color)
+static int	skip_space_sign_0x(char *color)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ static int	ft_atox_color(t_fr *f, char *color)
 
 	n = 0;
 	i = 0;
-	i = ship_space_sign_0x(color);
+	i = skip_space_sign_0x(color);
 	x = 0;
 	while (color[i] && ft_ishexdigit(color[i]))
 	{

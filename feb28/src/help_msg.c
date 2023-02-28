@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:45 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:19:17 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@
 */
 void	print_fractal_options(void)
 {
-	ft_putendl_fd("+===============  Available Fractals  ===============+", 1);
-	ft_putendl_fd("Which fractal would you like to view?", 1);
-	ft_putendl_fd("\tM - Mandelbrot", 1);
-	ft_putendl_fd("\tJ - Julia", 1);
-	ft_putendl_fd("\tB - Burning Ship", 1);
-	ft_putendl_fd("\tT - Tricorn", 1);
-	ft_putendl_fd("\tX - Mandelbox", 1);
-	ft_putendl_fd("\e[36mUsage example:\t./fractol <type>\n\t\t./fractol M\e[0m", 1);
+	ft_putendl_fd(" To view the fractals use the following:", 1);
+	ft_putendl_fd("\t1 - Mandelbrot", 1);
+	ft_putendl_fd("\t2 - Julia", 1);
+	ft_putendl_fd("\t3 - Sierpinski carpet", 1);
+	ft_putendl_fd("\t4 - Barnsly fern", 1);
 	ft_putstr_fd("\nFor Julia, you may specify starting values for the\n", 1);
 	ft_putstr_fd("initial fractal shape. Values must be between\n", 1);
 	ft_putendl_fd("-2.0 and 2.0 and must contain a decimal point.", 1);
@@ -38,7 +35,7 @@ void	print_fractal_options(void)
 *	Prints an explanation of the color options that can be specified
 *	at program launch.
 */
-void	print_color_options(void)
+/*void	print_color_options(void)
 {
 	ft_putendl_fd("\n+===============  Color Display  ====================+", 1);
 	ft_putendl_fd("Pick a display color by providing a hexadecimal code.", 1);
@@ -57,7 +54,7 @@ void	print_color_options(void)
 	ft_putstr_fd("\e[36mUsage example:\t", 1);
 	ft_putendl_fd("./fractol J 0.285 0.01 CC6600\e[0m", 1);
 }
-
+*/
 /* print_controls:
 *	Prints a list of program controls to the standard output when the program
 *	launches successfully.
@@ -77,7 +74,7 @@ void	print_color_options(void)
 void	print_controls(void)
 {
 	ft_putendl_fd("\n              Control keys              ", 1);
-	ft_putendl_fd("To left A; up W;  right D;  down S (or arrow keys)\tmove view.", 1);
+	ft_putendl_fd("To move  left A; up W;  right D;  down S (or arrow keys).", 1);
 	ft_putendl_fd("+/- or scroll wheel\tzoom in and out.", 1);
 	ft_putendl_fd("Spacebar\t\tchange color schemes.", 1);
 	ft_putendl_fd("Left click\t\tshift Julia fractl [Julia only].", 1);
@@ -89,10 +86,8 @@ void	print_controls(void)
 */
 void	help_msg(t_fr *f)
 {
-	ft_putendl_fd("\n+====================================================+", 1);
-	ft_putendl_fd("|                     FRACT'OL                       |", 1);
-	ft_putendl_fd("+====================================================+\n", 1);
+	ft_putendl_fd("|		FRACT'OL		|", 1);
 	print_fractal_options();
-	print_color_options();
+	//print_color_options();
 	clean_exit(EXIT_FAILURE, f);
 }

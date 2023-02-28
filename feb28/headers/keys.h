@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:46:55 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 13:47:01 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:07:38 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
-# define KEY_PLUS 61
+# define KEY_PLUS 43
 # define KEY_MINUS 45
 # define KEY_SPACE 32
 # define KEY_ONE 49

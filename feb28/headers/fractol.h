@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:46:38 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:57:32 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:36:56 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_fr
 	void	*mlx;
 	void	*win;
 	void	*img;
-	char	*buf;
+	char	*data;
 	int		fractl;
 	double	max_r;
 	double	max_i;
@@ -51,7 +51,7 @@ typedef struct s_fr
 	double	sx;
 	double	rx;
 	double	fx;
-	int		*palette;
+	int		*col_arr;
 	int		color_pattern;
 	int		color;
 }	t_fr;
@@ -62,6 +62,8 @@ int		julia(t_fr *f, double cr, double ci);
 int		burning_ship(double cr, double ci);
 int		tricorn(double cr, double ci);
 int		mandelbox(t_fr *f, double cr, double ci);
+//int		sierp(t_fr *f, double zr, double zi);
+
 
 /*  Draw Fractal	*/
 void	render(t_fr *f);

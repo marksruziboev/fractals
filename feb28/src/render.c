@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:54:01 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:03:36 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 */
 static void	fractl_pixel_color(t_fr *f, int x, int y, int color)
 {
-		f->buf[x * 4 + y * WIDTH * 4] = color;
-		f->buf[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
-		f->buf[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
-		f->buf[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
+		f->data[x * 4 + y * WIDTH * 4] = color;
+		f->data[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
+		f->data[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
+		f->data[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
 }
 
 /* calculate_fractal:
@@ -81,7 +81,7 @@ void	render(t_fr *f)
 			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 			pi = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
 			nb_iter = calculate_fractal(f, pr, pi);
-			fractl_pixel_color(f, x, y, f->palette[nb_iter]);
+			fractl_pixel_color(f, x, y, f->col_arr[nb_iter]);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);

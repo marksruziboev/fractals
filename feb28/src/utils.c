@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:54:07 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:30:20 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:08:33 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /* clean_exit:
 *	Destroys the window, the MLX image and the MLX instance,
-*	and frees the color palette, before ending the MLX loop
+*	and frees the color col_arr, before ending the MLX loop
 *	and destroying the display. Exits the process with the provided
 *	exit code.
 */
@@ -23,8 +23,8 @@ void	clean_exit(int exit_code, t_fr *f)
 {
 	if (!f)
 		exit(exit_code);
-	if (f->palette)
-		free(f->palette);
+	if (f->col_arr)
+		free(f->col_arr);
 	if (f->img)
 		mlx_destroy_image(f->mlx, f->img);
 	if (f->win && f->mlx)

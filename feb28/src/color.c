@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:53:28 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:36:09 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 */
 static void	color_shift_special(t_fr *f)
 {
-	int	alt_color;
+	int	int_c;
 
 	if (f->color == 0xFFFFFF)
-		alt_color = 0xCCCCCC;
+		int_c = 0xCCCCCC;
 	else
-		alt_color = f->color;
+		int_c = f->color;
 	if (f->color_pattern == 5)
-		fractl_color_contrasted(f, alt_color);
+		fractl_color_contrasted(f, int_c);
 	else if (f->color_pattern == 6)
 		fractl_color_opposites(f, f->color);
 	else if (f->color_pattern == 7)
@@ -61,18 +61,18 @@ static void	color_shift_striped(t_fr *f)
 */
 void	color_shift(t_fr *f)
 {
-	int	alt_color;
+	int	clr;
 
 	f->color_pattern = (f->color_pattern + 1) % 9;
 	reinit_img(f);
 	if (f->color == 0x000000)
-		alt_color = 0x333333;
+		clr = 0x333333;
 	else
-		alt_color = f->color;
+		clr = f->color;
 	if (f->color_pattern == 0)
-		fractl_color_mono(f, alt_color);
+		fractl_color_mono(f, clr);
 	else if (f->color_pattern == 1)
-		fractl_color_multiple(f, (int [4]){0x000000, alt_color,
+		fractl_color_multiple(f, (int [4]){0x000000, clr,
 			get_percent_color(f->color, 50), 0xFFFFFF}, 4);
 	else
 		color_shift_striped(f);

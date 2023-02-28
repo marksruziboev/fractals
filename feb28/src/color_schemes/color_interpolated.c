@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:50:25 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 15:47:28 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:09:21 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ void	fractl_color_mono(t_fr *f, int color)
 		while (j < MAX_ITERATIONS / 2)
 		{
 			fraction = (double)j / (MAX_ITERATIONS / 2);
-			f->palette[i + j] = interpolate(color1, color2, fraction);
+			f->col_arr[i + j] = interpolate(color1, color2, fraction);
 			j++;
 		}
 		color1 = color2;
 		color2 = 0xFFFFFF;
 		i += j;
 	}
-	f->palette[MAX_ITERATIONS -1] = 0;
+	f->col_arr[MAX_ITERATIONS -1] = 0;
 }
 
 /* fractl_color_multiple:
@@ -84,11 +84,11 @@ void	fractl_color_multiple(t_fr *f, int colors[4], int n)
 		while ((i + j) < MAX_ITERATIONS && j < (MAX_ITERATIONS / (n - 1)))
 		{
 			fraction = (double)j / (MAX_ITERATIONS / (n - 1));
-			f->palette[i + j] = interpolate(colors[x], colors[x + 1], fraction);
+			f->col_arr[i + j] = interpolate(colors[x], colors[x + 1], fraction);
 			j++;
 		}
 		x++;
 		i += j;
 	}
-	f->palette[MAX_ITERATIONS - 1] = 0;
+	f->col_arr[MAX_ITERATIONS - 1] = 0;
 }
