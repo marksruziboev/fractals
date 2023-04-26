@@ -23,7 +23,7 @@ MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 
 # sources 
-SRC 	= barns.c events.c fractol.c julia.c mandelbrot.c
+SRC 	= julia.c create.c fract.c  #barns.c events.c fractol.c  mandelbrot.c
 
 #objects 
 OBJ     = $(SRC:.c=.o)

@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-void    pars_inpt(int argc, char **argv)
+/*void    pars_inpt(int argc, char **argv)
 {
     if (argc == 1)
     {
@@ -36,4 +36,26 @@ void    pars_inpt(int argc, char **argv)
         plot_mandelbrot(f, c);
         
     }
+}*/
+void    init(t_mlx *w)
+{
+    w->mlx = NULL;
+	w->win = NULL;
+	w->img = NULL;
+	w->addr= NULL;
+}
+
+int main()
+{
+    t_vec  c;
+    t_mlx *w;
+
+    c.x = 0;
+    c.y = 0.01;
+    w = malloc(sizeof(t_mlx));
+    init(w);
+    img_wind(w, "Julia");
+    plot_julia(w, &c);
+    mlx_loop(w->mlx);
+    return (0);
 }

@@ -38,7 +38,7 @@ int		main(void)
 	void	*img;
 
 	mlx = mlx_init();
-	win = mlx_new_window(mlx, 900, 800, "Barnsley Fern");
+	win = mlx_new_window(mlx, WIDTH, HEIGHT, "Barnsley Fern");
 	img = mlx_new_image(mlx, WIDTH, HEIGHT);
 
 	float	p;
