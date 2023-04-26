@@ -37,25 +37,19 @@
         
     }
 }*/
-void    init(t_mlx *w)
-{
-    w->mlx = NULL;
-	w->win = NULL;
-	w->img = NULL;
-	w->addr= NULL;
-}
 
 int main()
 {
-    t_vec  c;
     t_mlx *w;
 
-    c.x = 0;
-    c.y = 0.01;
     w = malloc(sizeof(t_mlx));
     init(w);
+    w->cx = 0;
+    w->cy = 0.01;
     img_wind(w, "Julia");
-    plot_julia(w, &c);
+    plot_julia(w);
+    plot_fractal(w);
+    printf("ehre\n");
     mlx_loop(w->mlx);
     return (0);
 }

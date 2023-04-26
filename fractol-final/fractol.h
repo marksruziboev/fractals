@@ -23,8 +23,8 @@
 
 
 //size of the window
-# define WIDTH 1200
-# define HEIGHT 800
+# define WIDTH 900
+# define HEIGHT 900
 # define OMEGA 60
 
 // fractals
@@ -43,32 +43,26 @@ typedef struct	s_mlx
 	void	*win;
 	void	*img;
 	char	*addr;
+	double		x;
+	double		y;
+	double		x_max;
+	double		y_max;
+	double		x_min;
+	double		y_min;
+	double		cx;
+	double		cy;
+	int			*color;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
 		
 }			t_mlx;
 
-typedef struct s_ivec
-{
-	int	x;
-	int	y;
-}		t_ivec;
-
-typedef struct s_vec
-{
-	double x;
-	double y;
-} t_vec;
-
 
 /*void	jeyanx(t_vec c, t_da *data, int color);
 void	ehabx(t_data *data, int color);
 
-
-void	exit_husseyin(int code, t_fr *f);*/
-
-/*int		julia_shift(int x, int y, t_fractol *f);
+int		julia_shift(int x, int y, t_fractol *f);
 int		julia(t_fractol *f, t_vect z);
 int		handle_no_event(void *data);
 int		key_input(int keysym, t_data *data);
@@ -78,17 +72,18 @@ int		click_destroy(t_data *data);*/
 /*
 Help messages
 */
-void	fractals(void);
-void	controls(void);
+
 //void	help_msg(t_fr *f); // this also exist frees the struct
 
 void    img_wind(t_mlx *w, char *str);
-void	my_mlx_pixel_put(t_mlx *w, t_ivec *p, int color);
+void	my_mlx_pixel_put(t_mlx *w, int i, int j, int color);
 
-int	julia(t_vec *z, t_vec *c);
+int		julia(t_mlx *z);
 void    plot_fractal(t_mlx *w);
-void	plot_julia(t_mlx *w, t_vec *c);
-t_vec  project(int q1, int q2);
+void	plot_julia(t_mlx *w);
+void    init(t_mlx *w);
+void	exit_husseyin(int code, t_mlx *w);
+
 
 double		rnd(double x);
 

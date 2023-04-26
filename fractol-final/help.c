@@ -12,23 +12,25 @@
 
 #include "fractol.h"
 
-void	exit_husseyin(int code, t_fr *f)
+void	exit_husseyin(int code, t_mlx *w)
 {
-	if (!f)
+	if (!w)
 		exit(code);
-	if (f->col_arr)
-		free(f->col_arr);
-	if (f->img)
-		mlx_destroy_image(f->mlx, f->img);
-	if (f->win && f->mlx)
-		mlx_destroy_window(f->mlx, f->win);
-	if (f->mlx)
+	if (w->color)
+		free(w->color);
+	if (w->addr)
+		free(w->addr);
+	if (w->img)
+		mlx_destroy_image(w->mlx, w->img);
+	if (w->win && w->mlx)
+		mlx_destroy_window(w->mlx, w->win);
+	if (w->mlx)
 	{
-		mlx_loop_end(f->mlx);
-		mlx_destroy_display(f->mlx);
-		free(f->mlx);
+		mlx_loop_end(w->mlx);
+		mlx_destroy_display(w->mlx);
+		free(w->mlx);
 	}
-	exit(exit_code);
+	exit(code);
 }
 
 
@@ -56,10 +58,10 @@ void	controls(void)
 	ft_putendl_fd("1, 2, 3, 4, 5\t\tswitch fractals.", 1);
 	ft_putendl_fd("ESC or close window\tquit fract'ol.", 1);
 }
-void	help_msg(t_fr *f)
+void	help_msg(t_mlx *w)
 {
 	ft_putendl_fd("|		FRACT'OL		|", 1);
 	fractals();
 	//print_color_options();
-	exit_husseyin(EXIT_FAILURE, f);
+	exit_husseyin(EXIT_FAILURE, w);
 }

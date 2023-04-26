@@ -20,7 +20,7 @@
 	render(f);
 	return (0);
 }*/
-int	julia(t_vec *z, t_vec *c)
+int	julia(t_mlx *z)
 {
 	int		n;
 	double	tmp;
@@ -30,29 +30,24 @@ int	julia(t_vec *z, t_vec *c)
 	{
 		if ((z->x * z->x + z->y * z->y) > 4.0)
 			break ;
-		tmp = 2 * z->x * z->y + c->y;
-		z->x = z->x * z->x - z->y * z->y + c->x;
+		tmp = 2 * z->x * z->y + z->cy;
+		z->x = z->x * z->x - z->y * z->y + z->cx;
 		z->y = tmp;
 		n++;
 	}
 	return (n);
 }
 
-void	plot_julia(t_mlx *w, t_vec *c)
+void	plot_julia(t_mlx *z)
 {
-	t_ivec p;
-	t_vec	z;
-	
-	t_vec  project(int q1, int q2)
-	p.y = -1;
-	while(++p.y < HEIGHT)//julia(z, c))
+	int	i;
+	int	j;
+
+	j = -1;
+	while(++j < HEIGHT)
 	{
-		p.x = -1;
-		while(++p.x < HEIGHT)
-		{
-			z.x = project(p.x, p.y).x;
-			z.y = project(p.x, p.y).y;
-			my_mlx_pixel_put(w, &p, julia(&z, c)* 0x0C0F00);
-		}
+		i = -1;
+		while(++i < WIDTH)
+			my_mlx_pixel_put(z, i, j, julia(z) * 0x0C0F00);
 	}
 }
