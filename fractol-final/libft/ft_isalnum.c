@@ -21,3 +21,13 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
+
+int	ft_isnum(char *s)
+{
+	while ((*s >= '0' && *s <= '9') || *s == '-' || *s =='.')
+		s++;
+	if (*s == 0)
+		return (1);
+	else
+		return (0);
+}

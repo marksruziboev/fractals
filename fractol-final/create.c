@@ -44,18 +44,13 @@ void    img_wind(t_mlx *z, char *str) // type mlx
     {
 		exit_husseyin(1, z);
 	}
-	z->win = mlx_new_window(z->mlx, HEIGHT, HEIGHT, str);
+	z->win = mlx_new_window(z->mlx, WIDTH, HEIGHT, str);
     if (!z->win)
     {
 		exit_husseyin(1, z);
 	}
-	z->img = mlx_new_image(z->mlx, HEIGHT, HEIGHT);
+	z->img = mlx_new_image(z->mlx, WIDTH, HEIGHT);
     if (!z->img)
-    {
-		exit_husseyin(1, z);
-	}
-    z->addr = mlx_get_data_addr(z->img, &(z->bits_per_pixel), &(z->line_length), &(z->endian));
-    if (!z->addr)
     {
 		exit_husseyin(1, z);
 	}
@@ -65,6 +60,11 @@ void    my_mlx_pixel_put(t_mlx *z, int i, int j, int color)
 {
 	char	*dst;
 
+	z->addr = mlx_get_data_addr(z->img, &(z->bits_per_pixel), &(z->line_length), &(z->endian));
+    if (!z->addr)
+    {
+		exit_husseyin(1, z);
+	}
 	dst = z->addr + (j * z->line_length + i * (z->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }

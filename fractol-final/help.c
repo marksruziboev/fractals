@@ -44,8 +44,8 @@ void	fractals(void)
 	ft_putstr_fd("\nFor Julia, you may specify starting values for the\n", 1);
 	ft_putstr_fd("initial fractal shape. Values must be between\n", 1);
 	ft_putendl_fd("-2.0 and 2.0 and must contain a decimal point.", 1);
-	ft_putendl_fd("\e[36mUsage example:\t", 1);
-	ft_putendl_fd("./fractol J\n\t\t./fractol J 0.285 0.01 \e[0m", 1);
+	ft_putendl_fd("\t For example:\t", 1);
+	ft_putendl_fd("./fractol 2\n\t\t./fractol 2 0.285 0.01 \e[0m", 1);
 }
 
 void	controls(void)
@@ -60,7 +60,7 @@ void	controls(void)
 }
 void	help_msg(t_mlx *w)
 {
-	ft_putendl_fd("|		FRACT'OL		|", 1);
+	ft_putendl_fd("|		   FRACTOL		   |", 1);
 	fractals();
 	//print_color_options();
 	exit_husseyin(EXIT_FAILURE, w);

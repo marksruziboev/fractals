@@ -84,6 +84,9 @@ void	plot_julia(t_mlx *w);
 void    init(t_mlx *w);
 void	exit_husseyin(int code, t_mlx *w);
 
+void	help_msg(t_mlx *w);
+void	controls(void);
+
 
 double		rnd(double x);
 
