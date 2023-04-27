@@ -58,6 +58,12 @@ typedef struct	s_mlx
 		
 }			t_mlx;
 
+typedef	struct	s_vec
+{
+	double  x;
+	double  y;
+}
+
 
 /*void	jeyanx(t_vec c, t_da *data, int color);
 void	ehabx(t_data *data, int color);
