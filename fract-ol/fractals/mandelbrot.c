@@ -32,7 +32,7 @@ int	mandelbrot(t_vect c) // arguments were double cr, double ci
 		if ((z.x * z.x + z.y * z.y) > 6.0)
 			break ;
 		tmp = 2 * z.x * z.y + c.x;
-		zr = z.x * z.x - z.y * z.y + c.x;
+		z.x = z.x * z.x - z.y * z.y + c.x;
 		z.y = tmp;
 		n++;
 	}

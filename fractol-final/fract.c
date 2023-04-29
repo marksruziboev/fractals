@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:04:32 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/25 14:07:35 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:37:57 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,47 @@
 /*void    pars_inpt(int argc, char **argv, t_mlx *z)
 {
     if (argc == 1)
-    {
-        fractals();
-        exit_husseyin(1, z);
-    }
+        help_msg(z);
     else if (argc == 2)
     {
         if (!ft_strncmp(argv[1], "1", 2))
-            plot_mandelbrot(f);
+            plot_mandelbrot(z);
         else if (!ft_strncmp(argv[1], "2", 2))
-            plot_julia(f);
+            plot_julia(z);
         else if (!ft_strncmp(argv[1], "3", 2))
-            plot_mandelbrot(f);
+            plot_carpet(z);
         else if (!ft_strncmp(argv[1], "4", 2))
-            plot_fern(f);
+            plot_fern(z);
     } 
     else if (argc == 4 && !ft_strncmp(argv[1], "2", 2))
     {
         if (!ft_isnum(argv[2]) && !ft_isnum(argv[3]))
-            exit_husseyin(1, w);
-        w->cx = ft_ator(argv[2]);
-        w->cy = ft_ator(argv[3]);
-        plot_julia(f);
+            exit_husseyin(1, z);
+        z->cx = ft_ator(argv[2]);
+        z->cy = ft_ator(argv[3]);
+        plot_julia(z);
     }
     else 
-        exit_husseyin(1, w);
+        exit_husseyin(1, z);
 }*/
 
-int main(int argc, char **argv)
+int main() //(int argc, char **argv)
 {
-    /*t_mlx *w;
+    t_mlx *z;
+    
 
-    w = malloc(sizeof(t_mlx));
-    init(w);
-    help_msg(w);
-    controls();
-    w->cx = 0;
-    w->cy = 0.01;
-    img_wind(w, "Julia");
-    //plot_julia(w);
-    //plot_fractal(w);
-    mlx_loop(w->mlx);*/
-    while(--argc >= 0)
-        printf("argc=%d, %d\n", argc, ft_isnum(argv[argc]));
+    z = malloc(sizeof(t_mlx));
+    init(z);
+    //julia_extrmals(z);
+   // pars_inpt(argc, argv, z);
+    //controls();
+    img_wind(z, "Julia");
+   // plot_julia(z);
+   // plot_mandelbrot(z);
+   plot_fern(z);
+  
+    hooks(z);
+    mlx_loop(z->mlx);
+   // exit_husseyin(0, z);
     return (0);
 }

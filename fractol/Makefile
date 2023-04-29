@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eelasam <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 14:26:08 by eelasam           #+#    #+#              #
-#    Updated: 2023/03/21 18:39:50 by eelasam          ###   ########.fr        #
+#    Updated: 2023/04/29 16:33:13 by maruzibo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,11 @@ MLX = ./mlx_linux/libmlx.a
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) 
+$(NAME) : $(OBJS) $(MLX)
 		make -C mlx_linux
 		cc $(CFLAGS) $(OBJS) $(MLX) -o $(NAME) -lXext -lX11 -lm
+$(MLX):
+	make -C mlx_linux
 		
 
 clean :

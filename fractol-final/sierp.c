@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sierp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maruzibo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:39:37 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/16 13:56:14 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:50:13 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,37 @@ where the orbit of a point falls into removed square.
 
 We use it to dynamically color the carpet
 */
-t_vec	ser(t_vec z)
+int	map(int x)
 {
-	t_vec	r;
+	int	r;
+	int	w;
 
-	r.x = 3 * z.x - floor(3 * z.x);
-	r.y = 3 * z.y - floor(3 * z.y);
-	return (r);
+	w = 729;
+	if(x >= 0 && x <  w / 3)
+		return(3 * x);
+	else if (x >= w / 3 && x < 2 * w / 3)
+		return(3 * x - w);
+	else if (x >= 2 * w / 3 && x < w)
+		return(3 * x - 2 * w);
 }
 
-int	sierp(t_vec z)
+int	sierp(t_mlx *z)
 {
-	t_vec	next;
-	double	w;
+	int	w;
+	
+	w = 729;
+	if (map(i) > w / 3	&& map(i) < 2 * w / 2 && map(j) > w / 3	&& map(j) < 2 * w / 2)
+	
+	
+}
+
+/*int something(t_mlx *z)	
+{
 	double	e;
 	int		i;
 
-	w = 0.3333;
-	e = 0.6666;
+	w = 729;
+
 	next = z;
 	i = 0;
 	while (i < OMEGA)
@@ -46,7 +59,7 @@ int	sierp(t_vec z)
 	}
 	return (i);
 }
-
+*/
 /*void	sierpp(t_data *data, int color)
 {
 	t_vect	z;

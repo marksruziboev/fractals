@@ -1,4 +1,362 @@
-make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-'make.exe' is not recognized as an internal or external command,
-operable program or batch file.
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
 
+# Make data base, printed on Sat Apr 29 16:33:14 2023
+
+# Variables
+
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
+# environment
+SSH_AGENT_LAUNCHER = gnome-keyring
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /nfs/homes/maruzibo/Desktop/fractals/fractol
+# environment
+LIBVIRT_DEFAULT_URI = qemu:///system
+# environment
+GDM_LANG = en
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+ 
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /nfs/homes/maruzibo/Desktop/fractals/fractol
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/nfs/homes/maruzibo/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+OLDPWD = /nfs/homes/maruzibo/Desktop/fractals/fractol
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /nfs/homes/maruzibo/.config/Code/CachedData/704ed70d4fd1c6bd6342c436f1ede30d1cff4710
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session18
+# environment
+LANG = C
+# environment
+XAUTHORITY = /nfs/homes/maruzibo/.Xauthority
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.109
+# makefile
+MAKEFLAGS = pqrR
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=fa870a9a5b68b8e7b8cc0a22644d1dbf
+# makefile
+CURDIR := /nfs/homes/maruzibo/Desktop/fractals/fractol
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# makefile (from 'Makefile', line 17)
+SRCS = mandelbrot.c julia.c burning_ship.c main.c utils.c error_exit.c 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/101139/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 823738
+# environment
+KRB5CCNAME = FILE:/tmp/krb5cc_101139_v8hgzs
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/c4r5p8.42vienna.com:@/tmp/.ICE-unix/822012,unix/c4r5p8.42vienna.com:/tmp/.ICE-unix/822012
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=fa870a9a5b68b8e7b8cc0a22644d1dbf
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# makefile (from 'Makefile', line 24)
+OBJS = $(SRCS:.c=.o)
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/945b4f79_c2c2_44ed_a506_953250cbb642
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /nfs/homes/maruzibo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/nfs/homes/maruzibo/.local/share/JetBrains/Toolbox/scripts:/nfs/homes/maruzibo/.local/bin
+# default
+MAKEFILES := 
+# environment
+LANGUAGE = en
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 25)
+MLX = ./mlx_linux/libmlx.a
+# environment
+DOCKER_HOST = unix:///run/user/101139/docker.sock
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 13)
+NAME = fractol
+# environment
+GTK_IM_MODULE = ibus
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# automatic
++F = $(notdir $+)
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+DESKTOP_SESSION = ubuntu
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = maruzibo
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 822012
+# environment
+DISPLAY = :0
+# environment
+USER = maruzibo
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+_ = /usr/bin/code
+# environment
+XDG_RUNTIME_DIR = /run/user/101139
+# makefile (from 'Makefile', line 15)
+CFLAGS = -Wall -Werror -Wextra
+# environment
+GPG_AGENT_INFO = /run/user/101139/gnupg/S.gpg-agent:0:1
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /nfs/homes/maruzibo
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/101139/vscode-3589ccaf-1.77-main.sock
+# environment
+TERM = xterm-256color
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# environment
+VSCODE_CRASH_REPORTER_SANDBOXED_HINT = 1
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/maruzibo
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = ubuntu
+# variable set hash-table stats:
+# Load=106/1024=10%, Rehash=0, Collisions=13/142=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 58, inode 16515709): 19 files, no impossibilities.
+
+# 19 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+fractol: mandelbrot.o julia.o burning_ship.o main.o utils.o error_exit.o mlx_linux/libmlx.a
+#  Implicit rule search has not been done.
+#  Last modified 2023-04-28 18:21:45.275801569
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 30):
+		make -C mlx_linux
+		cc $(CFLAGS) $(OBJS) $(MLX) -o $(NAME) -lXext -lX11 -lm
+
+# Not a target:
+error_exit.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-28 18:21:43.787811158
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-29 16:33:13.340098355
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 37):
+		@rm -rf $(OBJS)
+		make clean -C mlx_linux
+
+re: fclean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+mlx_linux/libmlx.a:
+#  Implicit rule search has not been done.
+#  Last modified 2023-04-28 18:21:45.027803167
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 33):
+	make -C mlx_linux
+		
+
+# Not a target:
+julia.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-28 18:21:43.655812009
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: fractol
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 41):
+		@rm -rf $(NAME)
+
+# Not a target:
+main.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-28 18:21:43.715811623
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+burning_ship.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-28 18:21:43.683811829
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+mandelbrot.o:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2023-04-28 18:21:43.61981224
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+utils.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-04-28 18:21:43.751811391
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=15/1024=1%, Rehash=0, Collisions=0/39=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 28 / storage = 268 B / avg = 9 B
+# current buf: size = 8162 B / used = 268 B / count = 28 / avg = 9 B
+
+# strcache performance: lookups = 51 / hit rate = 45%
+# hash-table stats:
+# Load=28/8192=0%, Rehash=0, Collisions=0/51=0%
+# Finished Make data base on Sat Apr 29 16:33:14 2023
+
+ 

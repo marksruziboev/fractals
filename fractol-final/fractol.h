@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/25 12:51:03 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:34:50 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@
 
 
 //size of the window
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 500
+# define HEIGHT 500
 # define OMEGA 60
+# define SIERP 729
 
 // fractals
 # define MANDELBROT 1
@@ -58,13 +59,18 @@ typedef struct	s_mlx
 		
 }			t_mlx;
 
+
 typedef	struct	s_vec
 {
 	double  x;
 	double  y;
-}
+}			t_vec;
 
-
+typedef	struct	s_ivec
+{
+	int  x;
+	int  y;
+}			t_ivec;
 /*void	jeyanx(t_vec c, t_da *data, int color);
 void	ehabx(t_data *data, int color);
 
@@ -81,17 +87,28 @@ Help messages
 
 //void	help_msg(t_fr *f); // this also exist frees the struct
 
-void    img_wind(t_mlx *w, char *str);
-void	my_mlx_pixel_put(t_mlx *w, int i, int j, int color);
+void    img_wind(t_mlx *z, char *str);
+void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color);
 
-int		julia(t_mlx *z);
-void    plot_fractal(t_mlx *w);
-void	plot_julia(t_mlx *w);
-void    init(t_mlx *w);
-void	exit_husseyin(int code, t_mlx *w);
+int	escape_time(t_mlx *z);
+//int	escape_time(double x, double y, double cx, double cy);
 
-void	help_msg(t_mlx *w);
+void	plot_mandelbrot(t_mlx *z);
+//void    plot_carpet(t_mlx *z);
+void	plot_fern(t_mlx *z);
+void	plot_julia(t_mlx *z);
+void    julia_extrmals(t_mlx *z);
+void    init(t_mlx *z);
+int		exit_husseyin(int code, t_mlx *z);
+void	ft_free(char **d);
+
+void    pars_inpt(int argc, char **argv, t_mlx *z);
+void	help_msg(t_mlx *z);
+void	fractals(void);
 void	controls(void);
+void	hooks(t_mlx *z);
+double	ft_ator(char *s);
+
 
 
 double		rnd(double x);

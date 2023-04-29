@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maruzibo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/15 16:36:34 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:37:32 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,57 @@
 	f->ci = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
 	render(f);
 	return (0);
-}*/
-int	julia(t_mlx *z)
+}
+int	escape_time(t_mlx *z)
 {
 	int		n;
-	double	tmp;
+	double	tmp, tmp1;
 
 	n = 0;
-	while (n < OMEGA) 
-	{
-		if ((z->x * z->x + z->y * z->y) > 4.0)
-			break ;
+	while (n < OMEGA && (z->x * z->x + z->y * z->y < 4.0))
+	{ 
 		tmp = 2 * z->x * z->y + z->cy;
-		z->x = z->x * z->x - z->y * z->y + z->cx;
+		tmp1 = z->x * z->x - z->y * z->y + z->cx;
+		z->x = tmp1;
 		z->y = tmp;
 		n++;
 	}
 	return (n);
+}*/
+int	escape_time(t_mlx *z)
+{
+	int		n;
+	double	x;
+	double	y;
+	double	tmp;
+
+	n = 0;
+	x = z->x;
+	y = z->y;
+	while (n < OMEGA && (x * x + y * y < 4.0))
+	{ 
+		tmp = 2 * x * y + z->cy;
+		x = x * x - y * y + z->cx;
+		y = tmp;
+		n++;
+	}
+	return (n);
+}
+void    julia_extrmals(t_mlx *z)
+{
+	z->x = 0;
+	z->y = 0;
+	z->x_max = 2;
+	z->y_max = 2;
+	z->x_min = -2;
+	z->y_min = -2;
+	z->cx = 0.01;
+	z->cy = 0.285;
+	
+	/*z->color = NULL;
+	z->bits_per_pixel = 0;
+	z->line_length = 0;
+	z->endian = 0;*/
 }
 
 void	plot_julia(t_mlx *z)
@@ -44,10 +78,16 @@ void	plot_julia(t_mlx *z)
 	int	j;
 
 	j = -1;
+	julia_extrmals(z);
 	while(++j < HEIGHT)
 	{
 		i = -1;
+		z->y = z->y_max - (double) j * (z->y_max - z->y_min) / (double) HEIGHT;
 		while(++i < WIDTH)
-			my_mlx_pixel_put(z, i, j, julia(z) * 0x0C0F00);
+		{
+			z->x = z->x_min + (double) i * (z->x_max - z->x_min) / (double) WIDTH;
+			my_mlx_pixel_put(z, i, j, escape_time(z) * 0x0C0F00);
+		}
 	}
+	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
 }

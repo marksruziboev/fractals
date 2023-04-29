@@ -6,7 +6,7 @@
 #    By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 11:34:23 by maruzibo          #+#    #+#              #
-#    Updated: 2023/04/24 14:08:05 by maruzibo         ###   ########.fr        #
+#    Updated: 2023/04/29 18:32:24 by maruzibo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 
 # sources 
-SRC 	= julia.c create.c fract.c help.c #barns.c events.c fractol.c  mandelbrot.c
+SRC 	= julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c #events.c fractol.c  mandelbrot.c
 
 #objects 
 OBJ     = $(SRC:.c=.o)
@@ -47,8 +47,8 @@ clean:
 
 fclean: clean
 		@make fclean -C libft
-		@make fclean -C mlx_linux
 		@rm -f $(NAME)
+		@rm -f $(OBJ)
 
 re: fclean all
 

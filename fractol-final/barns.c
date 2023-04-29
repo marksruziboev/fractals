@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:43:38 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/25 12:49:11 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:29:40 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,54 +31,67 @@ double rnd(double x)
 	else 
 		return (0.09f*fabs(x));
 }
-int		main(void)
+void    fern_extrmals(t_mlx *z)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
+	z->x = 0;
+	z->y = 0;
+	z->x_max = 100;
+	z->y_max = 800;
+	z->x_min = -800;
+	z->y_min = -800;
+	z->cx = 0;
+	z->cy = 0;
+	
+	/*z->color = NULL;
+	z->bits_per_pixel = 0;
+	z->line_length = 0;
+	z->endian = 0;*/
+}
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, WIDTH, HEIGHT, "Barnsley Fern");
-	img = mlx_new_image(mlx, WIDTH, HEIGHT);
-
-	float	p;
-	long	n;
-	t_ivec	i;		// this has integerd coordinates (i.x, i.y)
-	t_vec		c;	// this has floating coordinates (c.x, c.y)
-
-	c.x = 0;
-	c.y = 0;
-
-	n = 50000;
-	p = 0.14; // the is the initial point for rnd(p). Thus we start with applyinf 
-	while (n--)
-	{
-		if (p <= 0.01f)
+void barns(t_mlx *z, float	p)
+{
+	if (p <= 0.01f)
 		{
-			c.x= 0;
-			c.y = 0.16f * c.x; //1st map
+			z->cx = 0;
+			z->cy = 0.16f * z->cx; //1st map
 		}
 		else if (0.1f <= p && p  <= 0.86f)
 		{
-			c.x = 0.85 * c.x + 0.04 * c.y;
-			c.y = -0.04 * c.x + 0.85 * c.y+ 1.6; // 2nd map
+			z->cx = 0.85 * z->cx + 0.04 * z->cy;
+			z->cy = -0.04 * z->cx + 0.85 * z->cy+ 1.6f; // 2nd map
 		}
 		else if (0.86f < p && p <= 0.93f)
 		{
-			c.x = 0.2f * c.x + -0.26f * c.y;
-			c.y = 0.23f * c.x + 0.22f * c.y + 1.6f; //3rd map
+			z->cx = 0.2f * z->cx + -0.26f * z->cy;
+			z->cy = 0.23f * z->cx + 0.22f * z->cy + 1.6f; //3rd map
 		}
-		
-		else if (0.93 <= p && p <= 1.0f){
+		else if (0.93 <= p && p <= 1.0f)
+		{
 
-			c.x = -0.15f *c.x + 0.28f * c.y;
-			c.y = 0.26f *c.y + 0.24f * c.y+ 0.44f; //4th map
+			z->cx = -0.15f * z->cx + 0.28f * z->cy;
+			z->cy = 0.26f * z->cy + 0.24f * z->cy+ 0.44f; //4th map
 		}
-		i.x=(c.x+3)*70;
-		i.y= 800 - c.y * 70; // replace 800 with height
-		mlx_pixel_put(mlx, win, (int)i.x, (int)i.y, 0x00FF00);
+}
+void	plot_fern(t_mlx *z)
+{
+	float	p;
+	int	n;
+	int i;
+	int	j;
+
+	n = 500000;
+	p = 0.14; // the is the initial point for rnd(p). Thus we start with applyinf 
+	fern_extrmals(z);
+	while (n--)
+	{
+		barns(z, p);
+		i = floor(z->cx *70 + 170);
+		/*if (i > 250)
+			i = 250 - i;*/
+		j = HEIGHT - floor(z->cy * 42);
+		my_mlx_pixel_put(z, i, j, 0x00FF00);
+		//my_mlx_pixel_put(z, i, j, escape_time(z) * 0x0C0F00);
 		p = rnd(p); 
 	}
-	mlx_loop(mlx);
-	return (0);
+	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maruzibo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:44:22 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/15 15:45:04 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:13:15 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,39 @@
 *   Returns the number of iterations before the number escapes 
 *   the Mandelbrot set, which can then be used to determine coloring.
 */
-int	mandelbrot(t_vect c) // arguments were double cr, double ci
+void    mandelbrot_extrmals(t_mlx *z)
 {
-	int		n;
-	t_vec	z;
-	double	tmp;
+	z->x = 0;
+	z->y = 0;
+	z->x_max = 2;
+	z->y_max = 2;
+	z->x_min = -3;
+	z->y_min = -3;
+	//z->cx = 0;
+	//z->cy = 0;
+	
+	/*z->color = NULL;
+	z->bits_per_pixel = 0;
+	z->line_length = 0;
+	z->endian = 0;*/
+}
 
-	z.x = 0;
-	z.y = 0;
-	n = 0;
-	while (n < OMEGA) // Omega = MAX_ITERATIONS
+void	plot_mandelbrot(t_mlx *z)
+{
+	int	i;
+	int	j;
+
+	j = -1;
+	mandelbrot_extrmals(z);
+	while(++j < HEIGHT)
 	{
-		if ((z.x * z.x + z.y * z.y) > 6.0)
-			break ;
-		tmp = 2 * z.x * z.y + c.x;
-		zr = z.x * z.x - z.y * z.y + c.x;
-		z.y = tmp;
-		n++;
+		i = -1;
+		z->cy = z->y_max - (double) j * (z->y_max - z->y_min)/(double) HEIGHT;
+		while(++i < WIDTH)
+		{
+			z->cx = z->x_min + (double) i * (z->x_max - z->x_min) / (double) WIDTH;
+			my_mlx_pixel_put(z, i, j, escape_time(z) * 0x0C0F00);
+		}
 	}
-	return (n);
+	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
 }
