@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'fract.o', needed by 'fractol'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Apr 29 18:32:35 2023
+# Make data base, printed on Sun Apr 30 11:30:13 2023
 
 # Variables
 
@@ -17,7 +19,7 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 26)
-SRC = julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c 
+SRC = julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c sierp.c
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
@@ -53,7 +55,7 @@ OLDPWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/maruzibo/.config/Code/CachedData/704ed70d4fd1c6bd6342c436f1ede30d1cff4710
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session18
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session19
 # makefile (from 'Makefile', line 23)
 LIBFT = ./libft/libft.a
 # environment
@@ -65,11 +67,11 @@ XAUTHORITY = /nfs/homes/maruzibo/.Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.109
+GNOME_TERMINAL_SERVICE = :1.111
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=fa870a9a5b68b8e7b8cc0a22644d1dbf
+DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=f40baabde2213fa5c99a04ad644e2643
 # makefile
 CURDIR := /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
@@ -93,22 +95,21 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 823738
+VSCODE_PID = 881721
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101139_v8hgzs
+KRB5CCNAME = FILE:/tmp/krb5cc_101139_JXOa87
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/c4r5p8.42vienna.com:@/tmp/.ICE-unix/822012,unix/c4r5p8.42vienna.com:/tmp/.ICE-unix/822012
+SESSION_MANAGER = local/c4r5p8.42vienna.com:@/tmp/.ICE-unix/878806,unix/c4r5p8.42vienna.com:/tmp/.ICE-unix/878806
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
- 
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=fa870a9a5b68b8e7b8cc0a22644d1dbf
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=f40baabde2213fa5c99a04ad644e2643
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -126,7 +127,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/f194b988_3404_443f_9fbb_6076225e2dc4
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/5bd93538_dc3a_4e44_b2f5_9a45065b39b6
 # environment
 MAKELEVEL := 0
 # default
@@ -166,7 +167,7 @@ LOGNAME = maruzibo
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 822012
+SYSTEMD_EXEC_PID = 878806
 # environment
 DISPLAY = :0
 # environment
@@ -234,9 +235,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 58, inode 29819161): 30 files, no impossibilities.
+# . (device 58, inode 29819161): 24 files, no impossibilities.
 
-# 30 files, no impossibilities in 1 directories.
+# 24 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -245,37 +246,40 @@ GDMSESSION = ubuntu
 # Files
 
 # Not a target:
-help.o:
-#  Implicit rule search has been done.
-#  Last modified 2023-04-29 17:06:47.455395323
-#  File has been updated.
-#  Successfully updated.
-
-fractol: julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o
+sierp.o:
 #  Implicit rule search has not been done.
-#  Last modified 2023-04-29 18:32:26.05985342
-#  File has been updated.
-#  Successfully updated.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+help.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fractol: julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 34):
 	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(MLX) -o $(NAME) -lXext -lX11 -lm
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2023-04-29 18:32:24.047865316
+#  Last modified 2023-04-30 11:19:37.085847213
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 fract.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-04-29 18:31:13.704281038
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2023-04-29 17:06:45.795405791
+#  Last modified 2023-04-30 11:29:57.674438753
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -299,7 +303,8 @@ re: fclean all
 
 mlx_linux/libmlx.a:
 #  Implicit rule search has not been done.
-#  Last modified 2023-04-29 17:06:47.135397341
+ 
+#  Last modified 2023-04-30 11:29:59.138430701
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -308,7 +313,7 @@ mlx_linux/libmlx.a:
 # Not a target:
 julia.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-04-29 17:37:44.54781629
+#  Last modified 2023-04-30 11:29:59.342429579
 #  File has been updated.
 #  Successfully updated.
 
@@ -321,7 +326,7 @@ julia.o:
 # Not a target:
 create.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-04-29 17:06:47.375395828
+#  Last modified 2023-04-30 11:29:59.386429337
 #  File has been updated.
 #  Successfully updated.
 
@@ -330,8 +335,7 @@ all: libft/libft.a mlx_linux/libmlx.a fractol
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -345,17 +349,15 @@ fclean: clean
 
 # Not a target:
 mandelbrot.o:
-#  Implicit rule search has been done.
-#  Last modified 2023-04-29 18:13:18.350755928
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 utils.o:
-#  Implicit rule search has been done.
-#  Last modified 2023-04-29 17:06:47.491395096
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -364,25 +366,24 @@ utils.o:
 
 # Not a target:
 barns.o:
-#  Implicit rule search has been done.
-#  Last modified 2023-04-29 18:32:25.995853798
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=18/1024=2%, Rehash=0, Collisions=0/49=0%
+# Load=19/1024=2%, Rehash=0, Collisions=0/51=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 41 / storage = 365 B / avg = 8 B
-# current buf: size = 8162 B / used = 365 B / count = 41 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 42 / storage = 373 B / avg = 8 B
+# current buf: size = 8162 B / used = 373 B / count = 42 / avg = 8 B
 
-# strcache performance: lookups = 72 / hit rate = 43%
+# strcache performance: lookups = 67 / hit rate = 37%
 # hash-table stats:
-# Load=41/8192=1%, Rehash=0, Collisions=0/72=0%
-# Finished Make data base on Sat Apr 29 18:32:35 2023
+# Load=42/8192=1%, Rehash=0, Collisions=0/67=0%
+# Finished Make data base on Sun Apr 30 11:30:13 2023
 
  

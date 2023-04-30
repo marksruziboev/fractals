@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/29 18:34:50 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/30 11:54:33 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 
 //size of the window
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 800
+# define HEIGHT 800
 # define OMEGA 60
 # define SIERP 729
 
@@ -94,7 +94,7 @@ int	escape_time(t_mlx *z);
 //int	escape_time(double x, double y, double cx, double cy);
 
 void	plot_mandelbrot(t_mlx *z);
-//void    plot_carpet(t_mlx *z);
+void    plot_carpet(t_mlx *z);
 void	plot_fern(t_mlx *z);
 void	plot_julia(t_mlx *z);
 void    julia_extrmals(t_mlx *z);

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:43:38 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/29 19:29:40 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/04/30 10:41:05 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,24 @@ void barns(t_mlx *z, float	p)
 {
 	if (p <= 0.01f)
 		{
-			z->cx = 0;
-			z->cy = 0.16f * z->cx; //1st map
+			z->x = 0;
+			z->y = 0.16f * z->x; //1st map
 		}
 		else if (0.1f <= p && p  <= 0.86f)
 		{
-			z->cx = 0.85 * z->cx + 0.04 * z->cy;
-			z->cy = -0.04 * z->cx + 0.85 * z->cy+ 1.6f; // 2nd map
+			z->x = 0.85 * z->x + 0.04 * z->y;
+			z->y = -0.04 * z->x + 0.85 * z->y+ 1.6f; // 2nd map
 		}
 		else if (0.86f < p && p <= 0.93f)
 		{
-			z->cx = 0.2f * z->cx + -0.26f * z->cy;
-			z->cy = 0.23f * z->cx + 0.22f * z->cy + 1.6f; //3rd map
+			z->x = 0.2f * z->x + -0.26f * z->y;
+			z->y = 0.23f * z->x + 0.22f * z->y + 1.6f; //3rd map
 		}
 		else if (0.93 <= p && p <= 1.0f)
 		{
 
-			z->cx = -0.15f * z->cx + 0.28f * z->cy;
-			z->cy = 0.26f * z->cy + 0.24f * z->cy+ 0.44f; //4th map
+			z->x = -0.15f * z->x + 0.28f * z->y;
+			z->y = 0.26f * z->y + 0.24f * z->y+ 0.44f; //4th map
 		}
 }
 void	plot_fern(t_mlx *z)
@@ -85,12 +85,11 @@ void	plot_fern(t_mlx *z)
 	while (n--)
 	{
 		barns(z, p);
-		i = floor(z->cx *70 + 170);
+		i = floor(z->x *70 + 170);
 		/*if (i > 250)
 			i = 250 - i;*/
-		j = HEIGHT - floor(z->cy * 42);
+		j = HEIGHT - floor(z->y * 42);
 		my_mlx_pixel_put(z, i, j, 0x00FF00);
-		//my_mlx_pixel_put(z, i, j, escape_time(z) * 0x0C0F00);
 		p = rnd(p); 
 	}
 	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);

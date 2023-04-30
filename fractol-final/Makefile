@@ -6,7 +6,7 @@
 #    By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 11:34:23 by maruzibo          #+#    #+#              #
-#    Updated: 2023/04/29 18:32:24 by maruzibo         ###   ########.fr        #
+#    Updated: 2023/04/30 11:19:37 by maruzibo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MLX	= ./mlx_linux/libmlx.a
 LIBFT	= ./libft/libft.a
 
 # sources 
-SRC 	= julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c #events.c fractol.c  mandelbrot.c
+SRC 	= julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c sierp.c
 
 #objects 
 OBJ     = $(SRC:.c=.o)
