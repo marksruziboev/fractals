@@ -1,11 +1,8 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
+cc -Wall -Werror -Wextra   -c -o julia.o julia.c
 cc -Wall -Werror -Wextra   -c -o fract.o fract.c
-cc -Wall -Werror -Wextra   -c -o help.o help.c
-cc -Wall -Werror -Wextra   -c -o utils.o utils.c
-cc -Wall -Werror -Wextra   -c -o mandelbrot.o mandelbrot.c
-cc -Wall -Werror -Wextra   -c -o barns.o barns.c
-cc -Wall -Werror -Wextra   -c -o sierp.o sierp.c
-cc julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o -Wall -Werror -Wextra ./libft/libft.a ./mlx_linux/libmlx.a -o fractol -lXext -lX11 -lm
 make: Leaving directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
  
+make: *** No rule to make target '//events.o', needed by 'fractol'.
+

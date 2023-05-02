@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:26:41 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/17 14:45:08 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:24:37 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,48 +20,49 @@
 *	If the zoom multiplier is small, like 0.5, the view will
 *	zoom in, if it is big, like 2.0, it will zoom out.
 */
-static void	ft_zoom(t_vec *f, double z)
+static void	ft_zoom(t_mlx *z, double v)
 {
-	t_vec	d;
+	double	dx;
+	double	dy;
 
-	d.x = (f->max.x - f->min.x)/2;
-	d.y = (f->max.y - f->min.y)/2;
-	f->max.x = d.x - (1 - z) * d.x;
-	f->min.x = d.x + (1 - z) * d.x;
-	f->min.y = d.y - (1 - z) * d.y; 
-	f->max.y = d.x + (1 - z) * d.x;
+	dx = (z->x_max - z->x_min)/2;
+	dy = (z->y_max - z->y_min)/2;
+	z->x_max = dx - (1 - v) * dx;
+	z->x_min = dx + (1 - v) * dx;
+	z->y_min = dy - (1 - v) * dy; 
+	z->y_max = dy + (1 - v) * dx;
 }
 
 /* move:
 *	Moves the view of the fractal by adjusting the complex
 *	number edge values a certain distance in a certain direction.
 */
-static void	move(t_fractol *f, double distance, char direction)
+static void	move(t_mlx *z, double distance, char direction)
 {
-	double	d.x;
-	double	d.y;
+	double	dx;
+	double	dy;
 
-	d.x = f->maxx - f->min_r;
-	d.y = f->maxy - f->miny;
+	dx = z->x_max - z->x_min;
+	dy = z->y_max - z->y_min;
 	if (direction == 'R')
 	{
-		f->min_r += d.x * distance;
-		f->maxx += d.x * distance;
+		z->x_min += dx * distance;
+		z->x_max += dx * distance;
 	}
 	else if (direction == 'L')
 	{
-		f->min_r -= d.x * distance;
-		f->maxx -= d.x * distance;
+		z->x_min -= dx * distance;
+		z->x_max -= dx * distance;
 	}
 	else if (direction == 'D')
 	{
-		f->miny -= d.y * distance;
-		f->maxy -= d.y * distance;
+		z->y_min -= dy * distance;
+		z->y_max -= dy * distance;
 	}
 	else if (direction == 'U')
 	{
-		f->miny += d.y * distance;
-		f->maxy += d.y * distance;
+		z->y_min += dy * distance;
+		z->y_max += dy * distance;
 	}
 }
 
@@ -74,7 +75,7 @@ static void	move(t_fractol *f, double distance, char direction)
 *	If a valid event is detected, settings are adjusted and the fractal
 *	gets redrawn.
 */
-static int	key_event_extend(int keycode, t_fractol *mlx)
+/*static int	key_event_extend(int keycode, t_mlx *mlx)
 {
 	if (keycode == KEY_ONE && mlx->set != MANDELBROT)
 		mlx->set = MANDELBROT;
@@ -91,7 +92,7 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 	get_complex_layout(mlx);
 	render(mlx);
 	return (0);
-}
+}*/
 
 /* key_event:
 *	Handles events from the keyboard keys:
@@ -104,7 +105,7 @@ static int	key_event_extend(int keycode, t_fractol *mlx)
 *	If a valid event is detected, settings are adjusted and the fractal
 *	gets redrawn.
 */
-int	key_event(int keycode, t_fractol *mlx)
+/*int	key_event(int keycode, t_fractol *mlx)
 {
 	if (keycode == KEY_ESC)
 	{
@@ -131,7 +132,7 @@ int	key_event(int keycode, t_fractol *mlx)
 		return (1);
 	render(mlx);
 	return (0);
-}
+}*/
 
 /* mouse_event:
 *	Handles events from the mouse:
@@ -143,7 +144,7 @@ int	key_event(int keycode, t_fractol *mlx)
 *	If a valid event is detected, settings are adjusted and the fractal
 *	gets redrawn.
 */
-int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
+/*int	mouse_event(int keycode, int x, int y, t_mlx *mlx)
 {
 	if (keycode == MOUSE_WHEEL_UP)
 	{
@@ -170,4 +171,4 @@ int	mouse_event(int keycode, int x, int y, t_fractol *mlx)
 		return (0);
 	render(mlx);
 	return (0);
-}
+}*/

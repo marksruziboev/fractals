@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:24:57 by marvin            #+#    #+#             */
-/*   Updated: 2023/04/29 15:48:02 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:04:10 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ double ft_ator(char *s)
   while(--i >= 0)
     r = r/10;
   if (v[0][0] != '-')
-    r = ft_atoi(v[0]) + ft_atoi(v[1]) * r;
+    r = (double)ft_atoi(v[0]) + (double)ft_atoi(v[1]) * r;
   else 
-    r = ft_atoi(v[0]) - ft_atoi(v[1]) * r;
+    r = (double)ft_atoi(v[0]) - (double)ft_atoi(v[1]) * r;
   ft_free(v);
   return (r);
 }

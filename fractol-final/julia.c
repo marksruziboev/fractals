@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/29 17:37:32 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:36:17 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,8 @@
 	f->ci = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
 	render(f);
 	return (0);
-}
-int	escape_time(t_mlx *z)
-{
-	int		n;
-	double	tmp, tmp1;
-
-	n = 0;
-	while (n < OMEGA && (z->x * z->x + z->y * z->y < 4.0))
-	{ 
-		tmp = 2 * z->x * z->y + z->cy;
-		tmp1 = z->x * z->x - z->y * z->y + z->cx;
-		z->x = tmp1;
-		z->y = tmp;
-		n++;
-	}
-	return (n);
 }*/
+
 int	escape_time(t_mlx *z)
 {
 	int		n;

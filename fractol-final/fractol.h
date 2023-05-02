@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/30 11:54:33 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:44:48 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 
 //size of the window
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 729
+# define HEIGHT 729
 # define OMEGA 60
 # define SIERP 729
 
@@ -91,7 +91,10 @@ void    img_wind(t_mlx *z, char *str);
 void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color);
 
 int	escape_time(t_mlx *z);
-//int	escape_time(double x, double y, double cx, double cy);
+
+//static void	ft_zoom(t_mlx *z, double v);
+//static void	move(t_mlx *z, double distance, char direction);
+
 
 void	plot_mandelbrot(t_mlx *z);
 void    plot_carpet(t_mlx *z);
@@ -108,6 +111,7 @@ void	fractals(void);
 void	controls(void);
 void	hooks(t_mlx *z);
 double	ft_ator(char *s);
+
 
 
 
