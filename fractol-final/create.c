@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:25:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/04/29 17:02:46 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:03:15 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init(t_mlx *z)
 	z->win = NULL;
 	z->img = NULL;
 	z->addr = NULL;
+	z->title = NULL;
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 0;
@@ -26,21 +27,21 @@ void	init(t_mlx *z)
 	z->y_min = 0;
 	z->cx = 0;
 	z->cy = 0;
-	z->color = NULL;
+	//z->color = NULL;
 	z->bits_per_pixel = 0;
 	z->line_length = 0;
 	z->endian = 0;
 }
 
-void img_wind(t_mlx *z, char *str)
+void img_wind(t_mlx *z)
 {
-	z->color = ft_calloc(OMEGA + 1, sizeof(int));
+	/*z->color = ft_calloc(OMEGA + 1, sizeof(int));
 	if (!z->color)
 	{
 		exit_husseyin(1, z);
-	}
+	}*/
 	z->mlx = mlx_init();
-	z->win = mlx_new_window(z->mlx, WIDTH, HEIGHT, str);
+	z->win = mlx_new_window(z->mlx, WIDTH, HEIGHT, z->title);
 	z->img = mlx_new_image(z->mlx, WIDTH, HEIGHT);
 	z->addr = mlx_get_data_addr(z->img, &z->bits_per_pixel, &z->line_length,
 			&z->endian);
@@ -49,10 +50,21 @@ void img_wind(t_mlx *z, char *str)
 		exit_husseyin(1, z);
 	}
 }
+
+int	key_pr(int key, t_mlx *z)
+{
+	if(key == 65307)
+	{
+		exit_husseyin(0, z);
+		//return(0);
+	}
+	return (0);
+}
 void	hooks(t_mlx *z)
 {
 	//mlx_key_hook(z->win, move, z);
-	mlx_hook(z->win, 17, 0, exit_husseyin, z);
+	printf("HOK");
+	mlx_hook(z->win, 2, 1L << 0, key_pr, z);
 	//mlx_mouse_hook(z->win, zoom, p);
 }
 

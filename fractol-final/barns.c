@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:43:38 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/30 10:41:05 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:00:48 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ double rnd(double x)
 }
 void    fern_extrmals(t_mlx *z)
 {
+	z->title = "Barnsley Fern";
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 100;
@@ -82,6 +83,7 @@ void	plot_fern(t_mlx *z)
 	n = 500000;
 	p = 0.14; // the is the initial point for rnd(p). Thus we start with applyinf 
 	fern_extrmals(z);
+	//img_wind(z);
 	while (n--)
 	{
 		barns(z, p);

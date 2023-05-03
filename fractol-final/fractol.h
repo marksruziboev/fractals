@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/02 16:44:48 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:02:46 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct	s_mlx
 	void	*win;
 	void	*img;
 	char	*addr;
+	char	*title;
 	double		x;
 	double		y;
 	double		x_max;
@@ -52,7 +53,7 @@ typedef struct	s_mlx
 	double		y_min;
 	double		cx;
 	double		cy;
-	int			*color;
+	//int			*color;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
@@ -87,7 +88,7 @@ Help messages
 
 //void	help_msg(t_fr *f); // this also exist frees the struct
 
-void    img_wind(t_mlx *z, char *str);
+void    img_wind(t_mlx *z);
 void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color);
 
 int	escape_time(t_mlx *z);

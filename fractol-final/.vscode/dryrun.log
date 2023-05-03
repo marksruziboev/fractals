@@ -1,8 +1,5 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
-cc -Wall -Werror -Wextra   -c -o julia.o julia.c
-cc -Wall -Werror -Wextra   -c -o fract.o fract.c
+make: Nothing to be done for 'all'.
 make: Leaving directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
  
-make: *** No rule to make target '//events.o', needed by 'fractol'.
-

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:39:37 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/02 15:50:48 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:01:00 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	escape_carpet(t_mlx *z)
 
 void    carpet_extrmals(t_mlx *z)
 {
+	z->title = "Sierpinski carpet";
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 729;
@@ -68,6 +69,7 @@ void	plot_carpet(t_mlx *z)
 	int	j;
 
 	carpet_extrmals(z);
+	//img_wind(z);
 	j = -1;
 	while(++j <= HEIGHT)
 	{

@@ -6,17 +6,15 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:04:32 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/02 16:51:22 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:10:54 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/*void    pars_inpt(int argc, char **argv, t_mlx *z)
+void    pars_inpt(int argc, char **argv, t_mlx *z)
 {
-    if (argc == 1)
-        help_msg(z);
-    else if (argc == 2)
+   if (argc == 2)
     {
         if (!ft_strncmp(argv[1], "1", 2))
             plot_mandelbrot(z);
@@ -37,26 +35,22 @@
     }
     else 
         exit_husseyin(1, z);
-}*/
+}
 
-int main()//(int argc, char **argv)
+int main(int argc, char **argv)
 {
     t_mlx *z;
     
 
     z = malloc(sizeof(t_mlx));
     init(z);
+    if (argc == 1)
+        help_msg(z);
    // controls();
-    img_wind(z, "Julia");
-    //plot_julia(z);
-    plot_carpet(z);
-   // pars_inpt(argc, argv, z);
+    img_wind(z);
     hooks(z);
+    pars_inpt(argc, argv, z);
     mlx_loop(z->mlx);
-   // exit_husseyin(0, z);
+    //exit_husseyin(0, z);
     return (0);
-     // 
-   // plot_mandelbrot(z); 0.285 0.344
-  // plot_fern(z);
-  //
 }

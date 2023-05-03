@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/02 16:36:17 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:39:44 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	escape_time(t_mlx *z)
 }
 void    julia_extrmals(t_mlx *z)
 {
+	z->title = "Julia";
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 2;
@@ -64,6 +65,7 @@ void	plot_julia(t_mlx *z)
 
 	j = -1;
 	julia_extrmals(z);
+	//img_wind(z);
 	while(++j < HEIGHT)
 	{
 		i = -1;

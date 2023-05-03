@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:44:22 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/04/29 18:13:15 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:00:55 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 */
 void    mandelbrot_extrmals(t_mlx *z)
 {
+	z->title = "Mandelbrot";
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 2;
@@ -42,6 +43,7 @@ void	plot_mandelbrot(t_mlx *z)
 
 	j = -1;
 	mandelbrot_extrmals(z);
+	//img_wind(z);
 	while(++j < HEIGHT)
 	{
 		i = -1;
