@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:25:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/03 18:03:15 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:20:39 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ void img_wind(t_mlx *z)
 
 int	key_pr(int key, t_mlx *z)
 {
+	
 	if(key == 65307)
 	{
+		
 		exit_husseyin(0, z);
 		//return(0);
 	}
@@ -63,7 +65,6 @@ int	key_pr(int key, t_mlx *z)
 void	hooks(t_mlx *z)
 {
 	//mlx_key_hook(z->win, move, z);
-	printf("HOK");
 	mlx_hook(z->win, 2, 1L << 0, key_pr, z);
 	//mlx_mouse_hook(z->win, zoom, p);
 }

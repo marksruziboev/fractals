@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:31:31 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 18:08:20 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:25:57 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,28 @@ int	exit_husseyin(int code, t_mlx *z)
 		printf("addr is not zero");
 		free(z->addr);
 	}*/
-	if (z->img)
+	mlx_destroy_image(z->mlx, z->img);
+	/*if (z->img)
 	{
 		 printf("img is not zero");
-		mlx_destroy_image(z->mlx, z->img);
 		free(z->img);
 	}
 	if (z->win && z->mlx)
 	{
 		printf("wim or mlx is not zero");
-		mlx_destroy_window(z->mlx, z->win);
 		free(z->win);
-	}
+	}*/
+	mlx_destroy_window(z->mlx, z->win);
+	mlx_destroy_display(z->mlx);
 	if (z->mlx)
 	{
-		printf("mlx is not zero");
-		mlx_loop_end(z->mlx);
-		mlx_destroy_display(z->mlx);
+		//printf("mlx is not zero");
+		//mlx_loop_end(z->mlx);
 		free(z->mlx);
 	}
 	if (z)
 		free(z);
-	//exit(code);
+	exit(code);
 	return (0);
 }
 void	ft_free(char **d)

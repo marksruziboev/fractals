@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:04:32 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 18:10:54 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:29:08 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ int main(int argc, char **argv)
 {
     t_mlx *z;
     
-
+    if (argc == 1)
+    {
+        fractals();
+        return(1);
+    }
     z = malloc(sizeof(t_mlx));
     init(z);
-    if (argc == 1)
-        help_msg(z);
    // controls();
     img_wind(z);
     hooks(z);

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 16:39:44 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:36:02 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void    julia_extrmals(t_mlx *z)
 	z->line_length = 0;
 	z->endian = 0;*/
 }
+
 
 void	plot_julia(t_mlx *z)
 {
