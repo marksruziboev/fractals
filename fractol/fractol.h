@@ -28,7 +28,13 @@
 # define MOUSE_UP 4
 # define MOUSE_DOWN 5
 
-typedef struct s_p
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+
+/*typedef struct s_p
 {
 	void	*ptr;
 	void	*win;
@@ -74,6 +80,8 @@ int			julia_loop(char *av, t_p *p);
 int			move(int keycode, t_p *p);
 int			zoom(int keycode, int x, int y, t_p *p);
 
-size_t		ft_strlen(const char *str);
+size_t		ft_strlen(const char *str);*/
+
+int	key_hook(int keycode, t_vars *vars);
 
 #endif

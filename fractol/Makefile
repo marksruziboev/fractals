@@ -12,14 +12,10 @@
 
 NAME = fractol
 
-CFLAGS = -Wall -Werror -Wextra
+#CFLAGS = -Wall -Werror -Wextra
 
-SRCS = mandelbrot.c\
-julia.c\
-burning_ship.c\
-main.c\
-utils.c\
-error_exit.c\
+SRCS = example.c#mandelbrot.c julia.c burning_ship.c main.c utils.c error_exit.c\
+	
 
 OBJS = $(SRCS:.c=.o)
 MLX = ./mlx_linux/libmlx.a
@@ -28,7 +24,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS) $(MLX)
 		make -C mlx_linux
-		cc $(CFLAGS) $(OBJS) $(MLX) -o $(NAME) -lXext -lX11 -lm
+		cc  $(OBJS) $(MLX) -o $(NAME) -lXext -lX11 -lm
 $(MLX):
 	make -C mlx_linux
 		

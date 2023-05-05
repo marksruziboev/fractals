@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 18:36:02 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:58:18 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	plot_julia(t_mlx *z)
 			my_mlx_pixel_put(z, i, j, escape_time(z) * 0x0C0F00);
 		}
 	}
-	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
+	//mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
 }

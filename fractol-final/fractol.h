@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 18:02:46 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:08:12 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <unistd.h>
 # include <stdio.h>
 # include <math.h>
+#include "key-code.h"
 
 
 //size of the window
@@ -53,7 +54,7 @@ typedef struct	s_mlx
 	double		y_min;
 	double		cx;
 	double		cy;
-	//int			*color;
+	int			*color;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
@@ -93,10 +94,10 @@ void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color);
 
 int	escape_time(t_mlx *z);
 
-//static void	ft_zoom(t_mlx *z, double v);
-//static void	move(t_mlx *z, double distance, char direction);
+static void	ft_zoom(t_mlx *z, double v);
+//static void	move(t_mlx *z, double dst, char dirct);
 
-
+int		key_pr(int keycode, t_mlx *z);
 void	plot_mandelbrot(t_mlx *z);
 void    plot_carpet(t_mlx *z);
 void	plot_fern(t_mlx *z);
