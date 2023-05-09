@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:44:22 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 17:00:55 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:51:49 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,7 @@
 *   Returns the number of iterations before the number escapes 
 *   the Mandelbrot set, which can then be used to determine coloring.
 */
-void    mandelbrot_extrmals(t_mlx *z)
-{
-	z->title = "Mandelbrot";
-	z->x = 0;
-	z->y = 0;
-	z->x_max = 2;
-	z->y_max = 2;
-	z->x_min = -3;
-	z->y_min = -3;
-	//z->cx = 0;
-	//z->cy = 0;
-	
-	/*z->color = NULL;
-	z->bits_per_pixel = 0;
-	z->line_length = 0;
-	z->endian = 0;*/
-}
+
 
 void	plot_mandelbrot(t_mlx *z)
 {
@@ -42,7 +26,7 @@ void	plot_mandelbrot(t_mlx *z)
 	int	j;
 
 	j = -1;
-	mandelbrot_extrmals(z);
+	//mandelbrot_extrmals(z);
 	//img_wind(z);
 	while(++j < HEIGHT)
 	{

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:24:57 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/05 16:46:09 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:57:45 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ t_vec  step(t_mlx *w)
   h.y = (w->y_max -w->y_min)/ (double) HEIGHT;
   return (h);
 }
-/*int key_dfn(int n)
-{
-  if (n == KEY_W || n == KEY_UP)
-    return('');
-}*/
 /*
 This function converts string into double
 */

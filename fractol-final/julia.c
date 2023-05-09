@@ -6,20 +6,20 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/05 16:58:18 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:19:19 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 
-/*int	click_julia(int x, int y, t_vect *b)
+int	click_julia(t_mlx *z, int i, int j)
 {
-	f->r = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-	f->ci = f->max_i + (double)y * (f->min_i - f->max_i) / HEIGHT;
-	render(f);
+	z->cx = z->x_min + (double)i * (z->x_max - z->x_min) / WIDTH;
+	z->cy = z->y_max + (double)j * (z->y_min - z->y_max) / HEIGHT;
+	plot_fractal(z);
 	return (0);
-}*/
+}
 
 int	escape_time(t_mlx *z)
 {
@@ -40,23 +40,7 @@ int	escape_time(t_mlx *z)
 	}
 	return (n);
 }
-void    julia_extrmals(t_mlx *z)
-{
-	z->title = "Julia";
-	z->x = 0;
-	z->y = 0;
-	z->x_max = 2;
-	z->y_max = 2;
-	z->x_min = -2;
-	z->y_min = -2;
-	z->cx = 0.01;
-	z->cy = 0.285;
-	
-	/*z->color = NULL;
-	z->bits_per_pixel = 0;
-	z->line_length = 0;
-	z->endian = 0;*/
-}
+
 
 
 void	plot_julia(t_mlx *z)
@@ -65,7 +49,7 @@ void	plot_julia(t_mlx *z)
 	int	j;
 
 	j = -1;
-	julia_extrmals(z);
+	//julia_extrmals(z);
 	//img_wind(z);
 	while(++j < HEIGHT)
 	{

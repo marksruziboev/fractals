@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:25:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/05 17:07:46 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:21:03 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	init(t_mlx *z)
 	z->y_min = 0;
 	z->cx = 0;
 	z->cy = 0;
-	//z->color = NULL;
+	z->color = NULL;
 	z->bits_per_pixel = 0;
 	z->line_length = 0;
 	z->endian = 0;
@@ -53,9 +53,11 @@ void img_wind(t_mlx *z)
 
 void	hooks(t_mlx *z)
 {
-	mlx_key_hook(z->win, ft_move, z);
+	mlx_key_hook(z->win, &key_pr, z);
 	mlx_hook(z->win, 2, 1L << 0, key_pr, z);
-	mlx_mouse_hook(z->win, ft_zoom, z);
+	mlx_mouse_hook(z->win, &mouse_event, z);
+	mlx_mouse_hook(z->win, &mouse_event, z);
+	
 }
 
 void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color)

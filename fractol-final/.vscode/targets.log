@@ -1,14 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'julia.o', needed by 'fractol'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Fri May  5 17:05:27 2023
+# Make data base, printed on Tue May  9 16:54:12 2023
 
 # Variables
 
@@ -19,19 +18,15 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 26)
-SRC = julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c sierp.c 
+SRC = julia.c create.c fract.c help.c utils.c mandelbrot.c barns.c sierp.c events.c print.c init.c
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
 # environment
-VSCODE_CWD = /nfs/homes/maruzibo
+VSCODE_CWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
 LIBVIRT_DEFAULT_URI = qemu:///system
-# environment
-GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -49,7 +44,7 @@ PWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/nfs/homes/maruzibo/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
-OLDPWD = /nfs/homes/maruzibo
+OLDPWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -57,7 +52,7 @@ OLDPWD = /nfs/homes/maruzibo
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/maruzibo/.config/Code/CachedData/704ed70d4fd1c6bd6342c436f1ede30d1cff4710
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session28
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session29
 # makefile (from 'Makefile', line 23)
 LIBFT = ./libft/libft.a
 # environment
@@ -68,12 +63,16 @@ XAUTHORITY = /nfs/homes/maruzibo/.Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.127
 # makefile
 MAKEFLAGS = pqrR
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=656fbac9a61fb89f22f4c2b3645a48b3
 # makefile
 CURDIR := /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -93,25 +92,25 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 927078
+VSCODE_PID = 1356890
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101139_EZXhn7
+KRB5CCNAME = FILE:/tmp/krb5cc_101139_iHY6H4
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/c4r5p6.42vienna.com:@/tmp/.ICE-unix/905197,unix/c4r5p6.42vienna.com:/tmp/.ICE-unix/905197
+SESSION_MANAGER = local/c4r5p7.42vienna.com:@/tmp/.ICE-unix/1353597,unix/c4r5p7.42vienna.com:/tmp/.ICE-unix/1353597
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=656fbac9a61fb89f22f4c2b3645a48b3
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"de-at","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -123,9 +122,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 1
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/fd730723_3b7b_4a22_a04f_07fd924317e1
 # environment
 MAKELEVEL := 0
 # default
@@ -134,12 +133,8 @@ MAKE = $(MAKE_COMMAND)
 PATH = /nfs/homes/maruzibo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/nfs/homes/maruzibo/.local/share/JetBrains/Toolbox/scripts:/nfs/homes/maruzibo/.local/bin
 # default
 MAKEFILES := 
-# environment
-LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
-# environment
-INVOCATION_ID = 50ce2aa9b62346709c295b680189b9a7
 # makefile (from 'Makefile', line 20)
 MLX = ./mlx_linux/libmlx.a
 # environment
@@ -164,12 +159,10 @@ ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 GNUMAKEFLAGS := 
 # environment
 LOGNAME = maruzibo
-# environment
-GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 905216
+SYSTEMD_EXEC_PID = 1353597
 # environment
 DISPLAY = :0
 # environment
@@ -179,11 +172,9 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 904576
+DBUS_STARTER_BUS_TYPE = session
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 927078
-# environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # environment
 XDG_RUNTIME_DIR = /run/user/101139
 # makefile (from 'Makefile', line 17)
@@ -191,7 +182,7 @@ CFLAGS = -Wall -Werror -Wextra
 # environment
 GPG_AGENT_INFO = /run/user/101139/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:3193538
+COLORTERM = truecolor
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -204,6 +195,8 @@ QT_IM_MODULE = ibus
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/101139/vscode-3589ccaf-1.77-main.sock
+# environment
+TERM = xterm-256color
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -212,6 +205,12 @@ VSCODE_IPC_HOOK = /run/user/101139/vscode-3589ccaf-1.77-main.sock
 VSCODE_CRASH_REPORTER_SANDBOXED_HINT = 1
 # default
 SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 6800
 # environment
 XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/maruzibo
 # default
@@ -223,7 +222,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=105/1024=10%, Rehash=0, Collisions=8/143=6%
+# Load=105/1024=10%, Rehash=0, Collisions=15/143=10%
 
 # Pattern-specific Variable Values
 
@@ -231,9 +230,9 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 58, inode 29819161): 30 files, no impossibilities.
+# . (device 58, inode 29819161): 34 files, no impossibilities.
 
-# 30 files, no impossibilities in 1 directories.
+# 34 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -243,39 +242,43 @@ GDMSESSION = ubuntu
 
 # Not a target:
 sierp.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:52:20.563110717
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 help.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-08 17:29:39.682657359
+#  File has been updated.
+#  Successfully updated.
 
-fractol: julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o
+fractol: julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o events.o print.o init.o
 #  Implicit rule search has not been done.
-#  Last modified 2023-05-05 16:55:18.072439312
-#  File has not been updated.
+#  Last modified 2023-05-09 16:52:47.64294074
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 34):
 	$(CC) $(OBJ) $(CFLAGS) $(LIBFT) $(MLX) -o $(NAME) -lXext -lX11 -lm
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2023-05-03 16:41:42.81489693
+#  Last modified 2023-05-09 16:52:45.034957109
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 fract.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:52:20.327112198
+#  File has been updated.
+#  Successfully updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2023-05-03 18:21:25.985700724
+#  Last modified 2023-05-06 16:04:48.919515438
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 38):
@@ -286,6 +289,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
+ 
 #  recipe to execute (from 'Makefile', line 44):
 	@rm -f $(OBJ)
 	@make clean -C libft
@@ -297,10 +301,16 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
+# Not a target:
+init.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:52:47.562941242
+#  File has been updated.
+#  Successfully updated.
+
 mlx_linux/libmlx.a:
 #  Implicit rule search has not been done.
- 
-#  Last modified 2023-05-03 18:21:27.873688982
+#  Last modified 2023-05-06 16:04:50.335507685
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -309,8 +319,9 @@ mlx_linux/libmlx.a:
 # Not a target:
 julia.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2023-05-09 16:52:20.2471127
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -320,16 +331,18 @@ julia.o:
 
 # Not a target:
 create.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 15:36:48.583683159
+#  File has been updated.
+#  Successfully updated.
 
 all: libft/libft.a mlx_linux/libmlx.a fractol
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Successfully updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -342,16 +355,32 @@ fclean: clean
 		@rm -f $(OBJ)
 
 # Not a target:
+print.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-05-08 19:01:20.63889865
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+events.o:
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:07:00.01631667
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 mandelbrot.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:52:20.407111695
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-08 17:29:39.810656599
+#  File has been updated.
+#  Successfully updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -360,24 +389,25 @@ utils.o:
 
 # Not a target:
 barns.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2023-05-09 16:52:20.479111244
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
-# Load=19/1024=2%, Rehash=0, Collisions=0/51=0%
+# Load=22/1024=2%, Rehash=0, Collisions=0/57=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 374 B / avg = 8 B
-# current buf: size = 8162 B / used = 374 B / count = 42 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 45 / storage = 399 B / avg = 8 B
+# current buf: size = 8162 B / used = 399 B / count = 45 / avg = 8 B
 
-# strcache performance: lookups = 73 / hit rate = 42%
+# strcache performance: lookups = 80 / hit rate = 43%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=0/73=0%
-# Finished Make data base on Fri May  5 17:05:27 2023
+# Load=45/8192=1%, Rehash=0, Collisions=0/80=0%
+# Finished Make data base on Tue May  9 16:54:12 2023
 
  

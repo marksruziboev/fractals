@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/05 17:08:12 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:24:54 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	s_mlx
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
+	int			f;
 		
 }			t_mlx;
 
@@ -92,12 +93,16 @@ Help messages
 void    img_wind(t_mlx *z);
 void	my_mlx_pixel_put(t_mlx *z, int i, int j, int color);
 
-int	escape_time(t_mlx *z);
-
-static void	ft_zoom(t_mlx *z, double v);
-//static void	move(t_mlx *z, double dst, char dirct);
+int		escape_time(t_mlx *z);
 
 int		key_pr(int keycode, t_mlx *z);
+int		mouse_event(int keycode, int i, int j, t_mlx *z);
+
+//static void	ft_move(t_mlx *z, double dst, char dirct);
+void	plot_fractal(t_mlx *z);
+int		click_julia(t_mlx *z, int i, int j);
+void	init_fractal(t_mlx *z);
+
 void	plot_mandelbrot(t_mlx *z);
 void    plot_carpet(t_mlx *z);
 void	plot_fern(t_mlx *z);
