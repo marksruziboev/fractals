@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:26:41 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 18:33:38 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:40:37 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	mouse_event(int keycode, int i, int j, t_mlx *z)//
 	if (keycode == MOUSE_WHEEL_UP)
 	{
 		mlx_mouse_get_pos(z->mlx, z->win, &i, &j);
-		ft_zoom(z, 0.9, i, j);
+		ft_zoom(z, 0.5, i, j);
 		i -= WIDTH / 2;
 		j -= HEIGHT / 2;
 		if (i < 0)
@@ -136,7 +136,7 @@ int	mouse_event(int keycode, int i, int j, t_mlx *z)//
 			ft_move (z, (double)j / HEIGHT, 'D');
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
-		ft_zoom(z, 1.11, i, j);
+		ft_zoom(z, 2, i, j);
 	else if (keycode == MOUSE_BTN)
 	{
 		if (z->f == 2)
