@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:47:21 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 16:50:19 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:57:10 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void    carpet_extrmals(t_mlx *z)
 	z->title = "Sierpinski carpet";
 	z->x = 0;
 	z->y = 0;
-	z->x_max = 729;
-	z->y_max = 729;
+	z->x_max = 1;
+	z->y_max = 1;//729;
 	z->x_min = 0;
 	z->y_min = 0;
 	z->cx = 0;
@@ -67,9 +67,9 @@ void    fern_extrmals(t_mlx *z)
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 100;
-	z->y_max = 800;
-	z->x_min = -800;
-	z->y_min = -800;
+	z->y_max = 100;
+	z->x_min = -100;
+	z->y_min = -100;
 	z->cx = 0;
 	z->cy = 0;
 	

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:25:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/09 18:21:03 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:39:22 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,17 @@ void img_wind(t_mlx *z)
 		exit_husseyin(1, z);
 	}
 }
-
+int	mouse_close(t_mlx *z)
+{
+	exit_husseyin(1, z);
+	return (0);
+}
 void	hooks(t_mlx *z)
 {
 	mlx_key_hook(z->win, &key_pr, z);
 	mlx_hook(z->win, 2, 1L << 0, key_pr, z);
-	mlx_mouse_hook(z->win, &mouse_event, z);
+	//mlx_mouse_hook(z->win, &mouse_event, z);
+	mlx_hook(z->win, 17, 1L << 17, &mouse_close, z);
 	mlx_mouse_hook(z->win, &mouse_event, z);
 	
 }

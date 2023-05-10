@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:31:31 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/03 18:25:57 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:39:11 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	ft_free(char **d)
 	}
 	free(d);
 }
+
+
 
 void	fractals(void)
 {

@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Tue May  9 16:54:12 2023
+# Make data base, printed on Wed May 10 15:28:28 2023
 
 # Variables
 
@@ -27,6 +26,8 @@ VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
 VSCODE_CWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
 LIBVIRT_DEFAULT_URI = qemu:///system
+# environment
+GDM_LANG = en
 # default
 MAKE_COMMAND := make
 # environment
@@ -52,7 +53,7 @@ OLDPWD = /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
 VSCODE_CODE_CACHE_PATH = /nfs/homes/maruzibo/.config/Code/CachedData/704ed70d4fd1c6bd6342c436f1ede30d1cff4710
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session29
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # makefile (from 'Makefile', line 23)
 LIBFT = ./libft/libft.a
 # environment
@@ -64,15 +65,15 @@ XAUTHORITY = /nfs/homes/maruzibo/.Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.127
+GNOME_TERMINAL_SERVICE = :1.100
 # makefile
 MAKEFLAGS = pqrR
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=656fbac9a61fb89f22f4c2b3645a48b3
+DBUS_STARTER_ADDRESS = unix:path=/run/user/101139/bus,guid=5cc7ac50fa87215f59941e5e645b9934
 # makefile
 CURDIR := /nfs/homes/maruzibo/Desktop/fractals/fractol-final
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -92,25 +93,25 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 1356890
+VSCODE_PID = 66949
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101139_iHY6H4
+KRB5CCNAME = FILE:/tmp/krb5cc_101139_WzqOs8
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/c4r5p7.42vienna.com:@/tmp/.ICE-unix/1353597,unix/c4r5p7.42vienna.com:/tmp/.ICE-unix/1353597
+SESSION_MANAGER = local/c4r5p1.42vienna.com:@/tmp/.ICE-unix/64026,unix/c4r5p1.42vienna.com:/tmp/.ICE-unix/64026
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=656fbac9a61fb89f22f4c2b3645a48b3
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101139/bus,guid=5cc7ac50fa87215f59941e5e645b9934
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"de-at","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -124,7 +125,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/fd730723_3b7b_4a22_a04f_07fd924317e1
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/c2650dc8_f068_4316_9d88_47a26bc5d220
 # environment
 MAKELEVEL := 0
 # default
@@ -133,6 +134,8 @@ MAKE = $(MAKE_COMMAND)
 PATH = /nfs/homes/maruzibo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/nfs/homes/maruzibo/.local/share/JetBrains/Toolbox/scripts:/nfs/homes/maruzibo/.local/bin
 # default
 MAKEFILES := 
+# environment
+LANGUAGE = en
 # automatic
 ^F = $(notdir $^)
 # makefile (from 'Makefile', line 20)
@@ -162,7 +165,7 @@ LOGNAME = maruzibo
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1353597
+SYSTEMD_EXEC_PID = 64026
 # environment
 DISPLAY = :0
 # environment
@@ -222,7 +225,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=105/1024=10%, Rehash=0, Collisions=15/143=10%
+# Load=107/1024=10%, Rehash=0, Collisions=16/145=11%
 
 # Pattern-specific Variable Values
 
@@ -256,7 +259,7 @@ help.o:
 
 fractol: julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o events.o print.o init.o
 #  Implicit rule search has not been done.
-#  Last modified 2023-05-09 16:52:47.64294074
+#  Last modified 2023-05-09 18:40:46.478565066
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 34):
@@ -272,12 +275,13 @@ Makefile:
 # Not a target:
 fract.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-05-09 16:52:20.327112198
+#  Last modified 2023-05-09 18:05:29.65166239
 #  File has been updated.
 #  Successfully updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
+ 
 #  Last modified 2023-05-06 16:04:48.919515438
 #  File has been updated.
 #  Successfully updated.
@@ -289,7 +293,6 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
- 
 #  recipe to execute (from 'Makefile', line 44):
 	@rm -f $(OBJ)
 	@make clean -C libft
@@ -319,7 +322,7 @@ mlx_linux/libmlx.a:
 # Not a target:
 julia.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-05-09 16:52:20.2471127
+#  Last modified 2023-05-09 18:24:56.816437374
 #  File has been updated.
 #  Successfully updated.
 
@@ -332,7 +335,7 @@ julia.o:
 # Not a target:
 create.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-05-09 15:36:48.583683159
+#  Last modified 2023-05-09 18:24:56.888436927
 #  File has been updated.
 #  Successfully updated.
 
@@ -364,7 +367,7 @@ print.o:
 # Not a target:
 events.o:
 #  Implicit rule search has been done.
-#  Last modified 2023-05-09 16:07:00.01631667
+#  Last modified 2023-05-09 18:40:46.418565433
 #  File has been updated.
 #  Successfully updated.
 
@@ -408,6 +411,6 @@ barns.o:
 # strcache performance: lookups = 80 / hit rate = 43%
 # hash-table stats:
 # Load=45/8192=1%, Rehash=0, Collisions=0/80=0%
-# Finished Make data base on Tue May  9 16:54:12 2023
+# Finished Make data base on Wed May 10 15:28:28 2023
 
  

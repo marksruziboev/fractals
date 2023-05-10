@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:39:37 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 16:51:37 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:20:06 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	escape_carpet(t_mlx *z)
 	
 	w = 729;
 	i = -1;
-	x = (int)z->x;
-	y = (int)z->y;
+	x = w*(int)z->x;
+	y = w*(int)z->y;
 	while (++i < OMEGA)
 	{
 		if ((3 * x > w 	&& 3 * x < 2 * w) && (3 * y > w	&& 3 * y < 2 * w))

@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:43:38 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 16:51:33 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:07:22 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ double rnd(double x)
 {
 	if (0 < x && x < 0.1)
 		return(10*x);
-	else if (0.1 < x && x < 0.86)
+	else if (0.1 < x && x < 0.87) //(0.1 < x && x < 0.86)
 		return(1.315789*x - 0.131578);
-	else if (0.86 < x && x < 0.93)
+	else if (0.87 < x && x < 0.9)
 		return(14.285714*x - 12.285714);
-	else if (0.93 < x && x < 1)
+	else if (0.9 < x && x < 1)
 		return(14.285714*x - 13.285714);
 	else 
 		return (0.09f*fabs(x));
