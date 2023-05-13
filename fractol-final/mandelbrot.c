@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:44:22 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 16:51:49 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:18:27 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	plot_mandelbrot(t_mlx *z)
 	int	j;
 
 	j = -1;
-	//mandelbrot_extrmals(z);
-	//img_wind(z);
 	while(++j < HEIGHT)
 	{
 		i = -1;

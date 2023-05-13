@@ -6,25 +6,57 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:24:57 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/08 16:57:45 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:14:05 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
 /*This function projects [-2, 2]^2 square to the window of pixels*/
-t_vec  step(t_mlx *w)
+int ft_color(int n)
 {
-  t_vec h;
-  
-  h.x = (w->x_max -w->x_min)/ (double) WIDTH;
-  h.y = (w->y_max -w->y_min)/ (double) HEIGHT;
-  return (h);
+  if (n % 4 == 0)
+    return (ORANGE);
+  else if (n % 4 == 1)
+    return (GREEN);
+  else if (n % 4 == 2)
+    return (RED);
+  else
+    return (BLUE);
+  return (0);
+}
+void	ft_csh(t_mlx *z)
+{
+	if (z->mlx && z->img)
+    mlx_destroy_image(z->mlx, z->img);
+  z->img = mlx_new_image(z->mlx, WIDTH, HEIGHT);
+	z->addr = mlx_get_data_addr(z->img, &z->bits_per_pixel, &z->line_length,
+			&z->endian);
+	if (!z->img || !z->addr)
+	{
+		exit_husseyin(1, z);
+	}
+	if (z->color == BLACK)
+    z->color += 256 * 32;
+  else if (z->color == WHITE)
+    z->color /= 2;
+  else
+    z->color += 256 * 32;
 }
 /*
 This function converts string into double
 */
-double ft_ator(char *s)
+int ishere(char *s, char ch)
+{
+  while(*s)
+  {
+    if (*s == ch)
+      return (1);
+    s++;
+  }
+  return (0);
+}
+double ft_ator(char *s, t_mlx *z)
 {
   char **v;
   double  r;
@@ -33,7 +65,12 @@ double ft_ator(char *s)
   if (!ft_isnum(s))
   {
     fractals();
-    exit(1);
+    exit_husseyin(1, z);
+  }
+  if (!ishere(s, '.')) 
+  {
+    ft_putendl_fd("Please insert one integer and two doubles!", 2);
+    exit_husseyin(1, z);
   }
   v = ft_split(s, '.');
   r = 1.0;

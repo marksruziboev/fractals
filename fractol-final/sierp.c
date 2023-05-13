@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 15:39:37 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/10 17:20:06 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:20:55 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ int	map(int x)
 		return(3 * x);
 	else if (3 * x >= w  && 3 * x < 2 * w)
 		return(3 * x - w);
-	else //(x >= 2 * w / 3 && x < w)
+	else 
 		return(3 * x - 2 * w);
 }
 
 int	escape_carpet(t_mlx *z)
 {
-	int	w;
 	int	x;
 	int	y;
 	int i;
 	
-	w = 729;
+	int w = 729;
 	i = -1;
 	x = w*(int)z->x;
 	y = w*(int)z->y;
@@ -56,9 +55,8 @@ void	plot_carpet(t_mlx *z)
 {
 	int	i;
 	int	j;
+	int	n;
 
-	//carpet_extrmals(z);
-	//img_wind(z);
 	j = -1;
 	while(++j <= HEIGHT)
 	{
@@ -67,8 +65,8 @@ void	plot_carpet(t_mlx *z)
 		while(++i <= WIDTH)
 		{
 			z->x = (double) i;
-			my_mlx_pixel_put(z, i, j, (escape_carpet(z) + 1) * 0x0000F0F);
+			n = escape_carpet(z);
+			my_mlx_pixel_put(z, i, j, (n + 1) * ft_color(n));
 		}
 	}
-	mlx_put_image_to_window(z->mlx, z->win, z->img, 0, 0);
 }

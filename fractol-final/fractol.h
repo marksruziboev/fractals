@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 18:46:17 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/09 18:24:54 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:02:15 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdio.h>
 # include <math.h>
 #include "key-code.h"
+#include "color.h"
 
 
 //size of the window
@@ -54,7 +55,7 @@ typedef struct	s_mlx
 	double		y_min;
 	double		cx;
 	double		cy;
-	int			*color;
+	int			color;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
@@ -97,11 +98,13 @@ int		escape_time(t_mlx *z);
 
 int		key_pr(int keycode, t_mlx *z);
 int		mouse_event(int keycode, int i, int j, t_mlx *z);
+void	plot_rat_julia(t_mlx *z);
 
 //static void	ft_move(t_mlx *z, double dst, char dirct);
 void	plot_fractal(t_mlx *z);
 int		click_julia(t_mlx *z, int i, int j);
 void	init_fractal(t_mlx *z);
+int ft_color(int n);
 
 void	plot_mandelbrot(t_mlx *z);
 void    plot_carpet(t_mlx *z);
@@ -111,13 +114,14 @@ void    julia_extrmals(t_mlx *z);
 void    init(t_mlx *z);
 int		exit_husseyin(int code, t_mlx *z);
 void	ft_free(char **d);
+void	ft_csh(t_mlx *z);
 
 void    pars_inpt(int argc, char **argv, t_mlx *z);
 void	help_msg(t_mlx *z);
 void	fractals(void);
 void	controls(void);
 void	hooks(t_mlx *z);
-double	ft_ator(char *s);
+double	ft_ator(char *s, t_mlx *z);
 
 
 

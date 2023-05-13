@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   rat_julia.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:29 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/05/13 15:29:43 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:58:40 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-
-int	click_julia(t_mlx *z, int i, int j)
-{
-	z->cx = z->cx + (double)(i - WIDTH / 2) / WIDTH; 
-	z->cy = z->cy + (double)(j - HEIGHT / 2) / HEIGHT;
-	plot_fractal(z);
-	return (0);
-}
-
-int	escape_time(t_mlx *z)
+/*
+z^2 + c/z^2 = (x+iy)^2 + (x-iy)^2/(x^2+y^2) = 
+(x^2 - y^2)(1 + (cx + 2xycy)/(x^2+y^2)) + i(2xy+ (cy*(x^2 - y^2) - 2xycx)/(x^2+y^2)) 
+*/
+int	escape_time_rat(t_mlx *z)
 {
 	int		n;
 	double	x;
 	double	y;
 	double	tmp;
+	double	tmpd;
+	
 
 	n = 0;
 	x = z->x;
 	y = z->y;
+	tmpd = (x * x + y * y);
 	while (n < OMEGA && (x * x + y * y < 4.0))
 	{ 
-		tmp = 2 * x * y + z->cy;
-		x = x * x - y * y + z->cx;
+		tmp = 2 * x * y * (1 - z->cx / (x * x + y * y)) + z->cy*(x * x - y * y)/(x * x + y * y);
+		x = (x*x - y*y) * (1 + z->cx / (x * x + y * y)) + 2 * x * y * z->cy;
 		y = tmp;
 		n++;
 	}
@@ -43,14 +41,14 @@ int	escape_time(t_mlx *z)
 
 
 
-void	plot_julia(t_mlx *z)
+void	plot_rat_julia(t_mlx *z)
 {
 	int	i;
 	int	j;
-	int n;
 
-	n = 0;
 	j = -1;
+	//julia_extrmals(z);
+	//img_wind(z);
 	while(++j < HEIGHT)
 	{
 		i = -1;
@@ -58,8 +56,7 @@ void	plot_julia(t_mlx *z)
 		while(++i < WIDTH)
 		{
 			z->x = z->x_min + (double) i * (z->x_max - z->x_min) / (double) WIDTH;
-			n = escape_time(z);
-			my_mlx_pixel_put(z, i, j, n * (BLACK + 100000));
+			my_mlx_pixel_put(z, i, j, (escape_time_rat(z)+10) * 0x808000);
 		}
 	}
 }

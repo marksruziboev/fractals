@@ -6,7 +6,7 @@
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 19:25:08 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/10 15:39:22 by maruzibo         ###   ########.fr       */
+/*   Updated: 2023/05/13 14:55:39 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init(t_mlx *z)
 	z->win = NULL;
 	z->img = NULL;
 	z->addr = NULL;
-	z->title = NULL;
+	z->title = "Fractal";
 	z->x = 0;
 	z->y = 0;
 	z->x_max = 0;
@@ -27,7 +27,7 @@ void	init(t_mlx *z)
 	z->y_min = 0;
 	z->cx = 0;
 	z->cy = 0;
-	z->color = NULL;
+	z->color = BLACK;
 	z->bits_per_pixel = 0;
 	z->line_length = 0;
 	z->endian = 0;
@@ -35,13 +35,8 @@ void	init(t_mlx *z)
 
 void img_wind(t_mlx *z)
 {
-	z->color = ft_calloc(OMEGA + 1, sizeof(int));
-	if (!z->color)
-	{
-		exit_husseyin(1, z);
-	}
 	z->mlx = mlx_init();
-	z->win = mlx_new_window(z->mlx, WIDTH, HEIGHT, z->title);
+	z->win = mlx_new_window(z->mlx, WIDTH, HEIGHT,  z->title);
 	z->img = mlx_new_image(z->mlx, WIDTH, HEIGHT);
 	z->addr = mlx_get_data_addr(z->img, &z->bits_per_pixel, &z->line_length,
 			&z->endian);
@@ -59,7 +54,6 @@ void	hooks(t_mlx *z)
 {
 	mlx_key_hook(z->win, &key_pr, z);
 	mlx_hook(z->win, 2, 1L << 0, key_pr, z);
-	//mlx_mouse_hook(z->win, &mouse_event, z);
 	mlx_hook(z->win, 17, 1L << 17, &mouse_close, z);
 	mlx_mouse_hook(z->win, &mouse_event, z);
 	
