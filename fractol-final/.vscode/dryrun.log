@@ -1,8 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
-cc -Wall -Werror -Wextra   -c -o utils.o utils.c
- 
-cc -Wall -Werror -Wextra   -c -o control.o control.c
-cc julia.o rat_julia.o create.o fract.o help.o utils.o mandelbrot.o barns.o sierp.o control.o print.o init.o -Wall -Werror -Wextra ./libft/libft.a ./mlx_linux/libmlx.a -o fractol -lXext -lX11 -lm
-make: Leaving directory '/nfs/homes/maruzibo/Desktop/fractals/fractol-final'
- 

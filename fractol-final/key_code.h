@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   key_code.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maruzibo <maruzibo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 13:46:55 by maruzibo          #+#    #+#             */
-/*   Updated: 2023/02/28 18:07:38 by maruzibo         ###   ########.fr       */
+/*   Created: 2023/02/15 14:34:30 by maruzibo          #+#    #+#             */
+/*   Updated: 2023/05/14 14:08:18 by maruzibo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef KEY_CODE_H
+# define KEY_CODE_H
 
-#ifndef KEYS_H
-# define KEYS_H
-
-# define EVENT_CLOSE_BTN 17
+# define CLOSE_BTN 17 
 # define KEY_ESC 65307
 # define KEY_W 119
 # define KEY_A 97
